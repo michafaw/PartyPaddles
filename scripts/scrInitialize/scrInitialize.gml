@@ -3,5 +3,9 @@
 function scrInitialize(){
 	if (live_call()) return live_result;
 	
+	// Scribble set up
+	// https://github.com/JujuAdams/scribble/wiki/Text-Formatting
+	scribble_font_add_all();
+	scribble_font_set_default("fntAvenirBlack30");
 	
 }
