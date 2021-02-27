@@ -2,9 +2,12 @@
   "resources": [
     {"id":{"name":"roomTitle","path":"rooms/roomTitle/roomTitle.yy",},"order":1,},
     {"id":{"name":"objInitializeControl","path":"objects/objInitializeControl/objInitializeControl.yy",},"order":0,},
+    {"id":{"name":"GMLive","path":"scripts/GMLive/GMLive.yy",},"order":0,},
     {"id":{"name":"objGameControl","path":"objects/objGameControl/objGameControl.yy",},"order":2,},
     {"id":{"name":"scrInitialize","path":"scripts/scrInitialize/scrInitialize.yy",},"order":0,},
     {"id":{"name":"objTitleControl","path":"objects/objTitleControl/objTitleControl.yy",},"order":1,},
+    {"id":{"name":"GMLiveAPI","path":"scripts/GMLiveAPI/GMLiveAPI.yy",},"order":1,},
+    {"id":{"name":"obj_gmlive","path":"objects/obj_gmlive/obj_gmlive.yy",},"order":2,},
     {"id":{"name":"roomArena1","path":"rooms/roomArena1/roomArena1.yy",},"order":2,},
     {"id":{"name":"roomInitialize","path":"rooms/roomInitialize/roomInitialize.yy",},"order":0,},
   ],
@@ -46,6 +49,7 @@
     {"folderPath":"folders/Animation Curves.yy","order":12,"resourceVersion":"1.0","name":"Animation Curves","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Notes.yy","order":13,"resourceVersion":"1.0","name":"Notes","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Extensions.yy","order":14,"resourceVersion":"1.0","name":"Extensions","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/Extensions/GMLive.yy","order":1,"resourceVersion":"1.0","name":"GMLive","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
@@ -53,7 +57,16 @@
   "TextureGroups": [
     {"isScaled":true,"autocrop":true,"border":2,"mipsToGenerate":0,"groupParent":null,"targets":-1,"resourceVersion":"1.3","name":"Default","resourceType":"GMTextureGroup",},
   ],
-  "IncludedFiles": [],
+  "IncludedFiles": [
+    {"CopyToMask":0,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gcmt-dll.dll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":0,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive.html","resourceType":"GMIncludedFile",},
+    {"CopyToMask":0,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.n","resourceType":"GMIncludedFile",},
+    {"CopyToMask":0,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"neko.dll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gcmt-dll.dll","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive.html","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"gmlive-server.n","resourceType":"GMIncludedFile",},
+    {"CopyToMask":-1,"filePath":"datafiles/GMLive","resourceVersion":"1.0","name":"neko.dll","resourceType":"GMIncludedFile",},
+  ],
   "MetaData": {
     "IDEVersion": "2.3.1.542",
   },
