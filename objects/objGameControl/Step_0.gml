@@ -4,5 +4,9 @@
 if (live_call()) return live_result;
 
 
-if(keyboard_check_pressed(vk_escape))
-	room_goto(roomTitle);
+if(keyboard_check_pressed(vk_escape)) {
+	if(keyboard_check(vk_shift))
+		room_restart()
+	else
+		room_goto(roomTitle);
+}
