@@ -25,8 +25,8 @@
   "properties": [],
   "overriddenProperties": [],
   "parent": {
-    "name": "Objects",
-    "path": "folders/Objects.yy",
+    "name": "Title Screen",
+    "path": "folders/Objects/Title Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "objTitleControl",
