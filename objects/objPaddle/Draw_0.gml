@@ -23,7 +23,27 @@ var paddleLeftEndY = y - bodyVectorY/2;
 var paddleRightEndX = x + bodyVectorX/2;
 var paddleRightEndY = y + bodyVectorY/2;
 
+
+if(shouldDrawPath) {
+	/// Draw the path the paddle can move on
+	var pathWidth = 5;
+	var holeRadius = 5;
+	var normalizedMovementVectorX = movementVectorX/movementSpeed;
+	var normalizedMovementVectorY = movementVectorY/movementSpeed;
+	var rangeVectorX = normalizedMovementVectorX*movementRange;
+	var rangeVectorY = normalizedMovementVectorY*movementRange;
+
+	draw_line_width_color(homeX, homeY, homeX + rangeVectorX, homeY + rangeVectorY, pathWidth, pathColor, pathColor);
+	draw_line_width_color(homeX, homeY, homeX - rangeVectorX, homeY - rangeVectorY, pathWidth, pathColor, pathColor);
+	draw_circle_color(homeX + rangeVectorX, homeY + rangeVectorY, holeRadius, pathColor, pathColor, false);
+	draw_circle_color(homeX - rangeVectorX, homeY - rangeVectorY, holeRadius, pathColor, pathColor, false);
+}
+
 // Draw the paddle and its two ends
 draw_sprite_ext(bodySprite, paddleImageIndex, x, y, paddleXScale, paddleYScale, bodyAngle, color, colorAlpha);
 draw_sprite_ext(leftEndSprite, paddleImageIndex, paddleLeftEndX, paddleLeftEndY, paddleXScale, paddleYScale, bodyAngle, color, colorAlpha);
 draw_sprite_ext(rightEndSprite, paddleImageIndex, paddleRightEndX, paddleRightEndY, paddleXScale, paddleYScale, bodyAngle, color, colorAlpha);
+
+
+
+
