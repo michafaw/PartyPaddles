@@ -2,9 +2,5 @@
 // You can write your code in this editor
 
 
-
-
-draw_set_halign(fa_center);
-draw_set_valign(fa_middle);
-draw_text(room_width/2, room_height/2, "Ready?");
+scribble("[fa_center][fa_middle][c_white][wave]Ready?[/wave]").draw(room_width/2, room_height/2);
 
