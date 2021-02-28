@@ -12,6 +12,7 @@ if(keyboard_check_pressed(vk_escape)) {
 }
 
 
+// Debug code to add socre to a particular player
 for (var i = 1; i <= 8; i++) {
 	if(keyboard_check_pressed(ord(string(i)))) {
 		global.playerScores[i-1] += 1;

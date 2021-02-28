@@ -3,6 +3,15 @@
 // if (live_call(argument0, argument1)) return live_result; // For 2 arg scripts
 if (live_call()) return live_result;
 
+if(instance_number(objGameControl) > 1) {
+	show_debug_message("objGameControl.Create: Removing duplicate objGameControl");
+	with(instance_find(objGameControl, 1)) {
+		
+		instance_destroy();
+	}
+	exit;
+}
+
 shouldShowStartPhrase = true;
 startPhraseDisplayTime = 1*room_speed;
 
