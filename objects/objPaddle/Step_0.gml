@@ -3,6 +3,9 @@
 // if (live_call(argument0, argument1)) return live_result; // For 2 arg scripts
 if (live_call()) return live_result;
 
+
+if(needsVectorRecalculation) {
+	needsVectorRecalculation = false;
 /////////////////////////////////////////////
 /// Update the paddle's internal math
 
@@ -18,7 +21,7 @@ movementVectorY = lengthdir_y(movementSpeed, movementAngle)
 
 /// End of "internal math" block
 /////////////////////////////////////////////
-
+}
 
 // Movement
 var xx = x;

@@ -35,10 +35,18 @@ pathColor = scribble_rgb_to_bgr(0x222222);
 //bodyAngleMatchesMovement = false;
 //movementAngle = 30;
 
+//characters = [sprCharacter1, sprCharacter2, sprCharacter3, sprCharacter4];
+for(var i = 0; i < 4; i++) {
+	characters[i] = choose(sprCharacter1, sprCharacter2, sprCharacter3, sprCharacter4, sprCharacter5, sprCharacter6, sprCharacter7, sprCharacter8);
+}
+
+
 ////////////////////////////////////
 /// Internal variables
 homeX = x;
 homeY = y;
+
+needsVectorRecalculation = true;
 
 // Override bodyAngle with the movementAngle if requested
 if(bodyAngleMatchesMovement)

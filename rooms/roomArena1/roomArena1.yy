@@ -17,7 +17,7 @@
   ],
   "layers": [
     {"instances":[
-        {"properties":[],"isDnd":false,"objectId":{"name":"objGameControl","path":"objects/objGameControl/objGameControl.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":{"name":"inst_745DD329","path":"rooms/roomArenaParentSettings/roomArenaParentSettings.yy",},"frozen":false,"ignore":false,"inheritItemSettings":true,"x":0.0,"y":0.0,"resourceVersion":"1.0","name":"inst_745DD329","tags":[],"resourceType":"GMRInstance",},
+        {"properties":[],"isDnd":false,"objectId":{"name":"objGameControl","path":"objects/objGameControl/objGameControl.yy",},"inheritCode":true,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":{"name":"inst_745DD329","path":"rooms/roomArenaParentSettings/roomArenaParentSettings.yy",},"frozen":false,"ignore":false,"inheritItemSettings":true,"x":0.0,"y":0.0,"resourceVersion":"1.0","name":"inst_745DD329","tags":[],"resourceType":"GMRInstance",},
         {"properties":[],"isDnd":false,"objectId":{"name":"objScoreboard","path":"objects/objScoreboard/objScoreboard.yy",},"inheritCode":true,"hasCreationCode":false,"colour":4294967295,"rotation":0.0,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":{"name":"inst_66B19C62","path":"rooms/roomArenaParentSettings/roomArenaParentSettings.yy",},"frozen":false,"ignore":false,"inheritItemSettings":true,"x":488.0,"y":8.0,"resourceVersion":"1.0","name":"inst_66B19C62","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":0,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"GUI_Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"instances":[
@@ -44,8 +44,6 @@
   "creationCodeFile": "",
   "inheritCode": true,
   "instanceCreationOrder": [
-    {"name":"inst_745DD329","path":"rooms/roomArena1/roomArena1.yy",},
-    {"name":"inst_745DD329","path":"rooms/roomArena1/roomArena1.yy",},
     {"name":"inst_398D01E2","path":"rooms/roomArena1/roomArena1.yy",},
     {"name":"inst_BB773CA","path":"rooms/roomArena1/roomArena1.yy",},
     {"name":"inst_20CF442E","path":"rooms/roomArena1/roomArena1.yy",},
@@ -56,6 +54,7 @@
     {"name":"inst_795BED22","path":"rooms/roomArena1/roomArena1.yy",},
     {"name":"inst_2B01807B","path":"rooms/roomArena1/roomArena1.yy",},
     {"name":"inst_105582E5","path":"rooms/roomArena1/roomArena1.yy",},
+    {"name":"inst_745DD329","path":"rooms/roomArena1/roomArena1.yy",},
     {"name":"inst_66B19C62","path":"rooms/roomArena1/roomArena1.yy",},
   ],
   "inheritCreationOrder": true,
