@@ -40,6 +40,7 @@
     {"id":{"name":"objGameControl","path":"objects/objGameControl/objGameControl.yy",},"order":0,},
     {"id":{"name":"sprDiscoArena","path":"sprites/sprDiscoArena/sprDiscoArena.yy",},"order":6,},
     {"id":{"name":"scrInitialize","path":"scripts/scrInitialize/scrInitialize.yy",},"order":0,},
+    {"id":{"name":"skh_BkgdRed","path":"sprites/skh_BkgdRed/skh_BkgdRed.yy",},"order":0,},
     {"id":{"name":"objTitleControl","path":"objects/objTitleControl/objTitleControl.yy",},"order":0,},
     {"id":{"name":"scribble_font_add_msdf","path":"scripts/scribble_font_add_msdf/scribble_font_add_msdf.yy",},"order":3,},
     {"id":{"name":"__scribble_class_vertex_buffer","path":"scripts/__scribble_class_vertex_buffer/__scribble_class_vertex_buffer.yy",},"order":7,},
@@ -121,6 +122,7 @@
     {"folderPath":"folders/Rooms/Game Rooms.yy","order":5,"resourceVersion":"1.0","name":"Game Rooms","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Rooms/Template & Setup Rooms.yy","order":7,"resourceVersion":"1.0","name":"Template & Setup Rooms","tags":[],"resourceType":"GMFolder",},
     {"folderPath":"folders/Sprites/Characters.yy","order":8,"resourceVersion":"1.0","name":"Characters","tags":[],"resourceType":"GMFolder",},
+    {"folderPath":"folders/ZXX_Scott.yy","order":17,"resourceVersion":"1.0","name":"ZXX_Scott","tags":[],"resourceType":"GMFolder",},
   ],
   "AudioGroups": [
     {"targets":-1,"resourceVersion":"1.3","name":"audiogroup_default","resourceType":"GMAudioGroup",},
