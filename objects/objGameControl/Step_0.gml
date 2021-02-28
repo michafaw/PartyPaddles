@@ -10,3 +10,10 @@ if(keyboard_check_pressed(vk_escape)) {
 	else
 		room_goto(roomTitle);
 }
+
+
+for (var i = 1; i <= 8; i++) {
+	if(keyboard_check_pressed(ord(string(i)))) {
+		global.playerScores[i-1] += 1;
+	}
+}
