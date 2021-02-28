@@ -4,6 +4,14 @@
 if (live_call()) return live_result;
 
 
+if(global.reduceGraphics) {
+	if(instance_number(objPaddle) > 1) {
+		with(instance_find(objPaddle, 0)) {
+			instance_destroy();	
+		}
+	}
+}
+
 if(needsVectorRecalculation) {
 	needsVectorRecalculation = false;
 /////////////////////////////////////////////

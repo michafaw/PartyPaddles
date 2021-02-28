@@ -4,9 +4,6 @@
 if (live_call()) return live_result;
 
 
-show_debug_overlay(true);
-
-
 shouldShowStartPhrase = true;
 startPhraseDisplayTime = 1*room_speed;
 

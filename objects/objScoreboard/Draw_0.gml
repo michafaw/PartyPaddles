@@ -3,6 +3,10 @@
 // if (live_call(argument0, argument1)) return live_result; // For 2 arg scripts
 if (live_call()) return live_result;
 
+if(global.reduceGraphics) {
+	draw_self()
+	exit;
+}
 
 var anchorX = 488
 var anchorY = 8;
@@ -12,7 +16,7 @@ var scorecardWidth = 144;
 var scorecardHeight = 58;
 
 
-var shouldSortByScore = true;
+var shouldSortByScore = false;
 
 
 var sortedPlayerScores;

@@ -11,6 +11,11 @@ if(keyboard_check_pressed(vk_escape)) {
 		room_goto(roomTitle);
 }
 
+if(keyboard_check_pressed(vk_up)) {
+	if(keyboard_check(vk_shift))
+		game_restart()
+}
+
 
 // Debug code to add socre to a particular player
 for (var i = 1; i <= 8; i++) {

@@ -4,6 +4,11 @@
 if (live_call()) return live_result;
 
 
+if(global.reduceGraphics) {
+	draw_self()
+	exit;
+}
+
 var paddleImageIndex = 0;
 var paddleXScale = 1.0*bodyWidth/sprite_get_width(bodySprite);
 var paddleYScale = 1.0*bodyHeight/sprite_get_height(bodySprite);

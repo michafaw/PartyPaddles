@@ -6,6 +6,11 @@ function scrInitialize() {
 	/// GMLive info here: https://yal.cc/r/17/gmlive/
 	if (live_call()) return live_result;
 	
+	global.reduceGraphics = false;
+	//if(global.reduceGraphics) // Restore this line when done debugging -- Micha TODO
+		show_debug_overlay(true);
+		
+	
 	// Scribble set up
 	// https://github.com/JujuAdams/scribble/wiki/Text-Formatting
 	scribble_font_add_all();
