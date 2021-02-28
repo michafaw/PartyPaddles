@@ -67,6 +67,7 @@ if(shouldSortByScore) {
 }
 
 for(var i = 0; i < numPlayers; i++) {
+	var playerColor = global.playerColors[i];
 	var cardOriginY = anchorY + i*scorecardHeight;
 	draw_sprite(sprScorecard, 0, anchorX, cardOriginY);
 	draw_sprite_ext(sortedPlayerCharacters[i], 0, anchorX + 68, cardOriginY+ 56, 2, 2, 0, c_white, 1.0);

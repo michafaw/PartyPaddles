@@ -7,4 +7,4 @@ if (instance_number(obj_gmlive) > 1) {
 #macro live_enabled 1
 
 // change IP/port here if you connect to remote gmlive-server:
-live_init(5, "http://localhost:5100", "");
+live_init(2, "http://localhost:5100", "");

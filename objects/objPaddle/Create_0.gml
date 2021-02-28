@@ -23,7 +23,7 @@ movementSpeed = 3.5;
 movementAngle = 30;
 movementRange = 60; // Total distance from the start point that the paddle can move out (full range is x2)
 
-playerNumber = 1; // 0 is AI, 1 is player 1 (left/right), 2 is player 2 (a/d)
+controllerNumber = 1; // 0 is AI, 1 is player 1 (left/right), 2 is player 2 (a/d)
 
 
 shouldDrawPath = true;
@@ -53,10 +53,10 @@ if(bodyAngleMatchesMovement)
 	bodyAngle = movementAngle;
 
 // Convert this to call object/struct's variables or methods, or a script
-if(playerNumber == 1) {
+if(controllerNumber == 1) {
 	rightKey = vk_right;
 	leftKey = vk_left;
-} else if(playerNumber == 2) {
+} else if(controllerNumber == 2) {
 	rightKey = ord("A");
 	leftKey = ord("D");
 } else {

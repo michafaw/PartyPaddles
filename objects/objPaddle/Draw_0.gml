@@ -9,6 +9,7 @@ if(global.reduceGraphics) {
 	exit;
 }
 
+
 var paddleImageIndex = 0;
 var paddleXScale = 1.0*bodyWidth/sprite_get_width(bodySprite);
 var paddleYScale = 1.0*bodyHeight/sprite_get_height(bodySprite);
@@ -21,6 +22,7 @@ var paddleYScale = 1.0*bodyHeight/sprite_get_height(bodySprite);
 //bodyAngle = 10;
 //blendColor = c_lime
 //blendColorAlpha = 0.6;
+//maintainEndSpriteAspectRatio = false
 
 
 var paddleLeftEndX = x - bodyVectorX/2; // div by 2 = half of the length of the paddle
@@ -44,10 +46,22 @@ if(shouldDrawPath) {
 	draw_circle_color(homeX - rangeVectorX, homeY - rangeVectorY, holeRadius, pathColor, pathColor, false);
 }
 
-// Draw the paddle and its two ends
+// Draw the paddle center body)
 draw_sprite_ext(bodySprite, paddleImageIndex, x, y, paddleXScale, paddleYScale, bodyAngle, blendColor, blendColorAlpha);
+
+// Draw the two paddle ends
+if(maintainEndSpriteAspectRatio) {
+	// To make the endSprites maintain their aspect ratio use this code block by Scott
+	// End scale should always be determined by the circle's dimensions, not the paddle length.
+var circleScale = paddleYScale;
+draw_sprite_ext(leftEndSprite, paddleImageIndex, paddleLeftEndX, paddleLeftEndY, circleScale, circleScale, bodyAngle, blendColor, blendColorAlpha);
+draw_sprite_ext(rightEndSprite, paddleImageIndex, paddleRightEndX, paddleRightEndY, circleScale, circleScale, bodyAngle, blendColor, blendColorAlpha);
+} else {
+	// Use the paddle's aspect ratio (xscale/yscale)
 draw_sprite_ext(leftEndSprite, paddleImageIndex, paddleLeftEndX, paddleLeftEndY, paddleXScale, paddleYScale, bodyAngle, blendColor, blendColorAlpha);
 draw_sprite_ext(rightEndSprite, paddleImageIndex, paddleRightEndX, paddleRightEndY, paddleXScale, paddleYScale, bodyAngle, blendColor, blendColorAlpha);
+}
+
 
 
 // Draw some prototype characters
