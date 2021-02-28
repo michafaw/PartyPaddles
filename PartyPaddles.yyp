@@ -74,6 +74,7 @@
     {"id":{"name":"objBall","path":"objects/objBall/objBall.yy",},"order":3,},
     {"id":{"name":"PartyPaddles_DiscoFloor2xAll_640x480","path":"sprites/PartyPaddles_DiscoFloor2xAll_640x480/PartyPaddles_DiscoFloor2xAll_640x480.yy",},"order":2,},
     {"id":{"name":"sprPaddleRightEnd","path":"sprites/sprPaddleRightEnd/sprPaddleRightEnd.yy",},"order":4,},
+    {"id":{"name":"Retro_Success_Melody_02___choir_soprano","path":"sounds/Retro_Success_Melody_02___choir_soprano/Retro_Success_Melody_02___choir_soprano.yy",},"order":6,},
     {"id":{"name":"__scribble_config_default_template","path":"scripts/__scribble_config_default_template/__scribble_config_default_template.yy",},"order":1,},
     {"id":{"name":"sprPaddleLeftEndFlat","path":"sprites/sprPaddleLeftEndFlat/sprPaddleLeftEndFlat.yy",},"order":5,},
     {"id":{"name":"scribble_font_bake_shader","path":"scripts/scribble_font_bake_shader/scribble_font_bake_shader.yy",},"order":1,},
