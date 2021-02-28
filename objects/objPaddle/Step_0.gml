@@ -8,22 +8,19 @@ if (live_call()) return live_result;
 
 // Vector that represents the length/direction of the paddle at its current rotation/size
 // In the direction of its "right" end
-bodyVectorX = lengthdir_x(width, bodyAngle)
-bodyVectorY = lengthdir_y(width, bodyAngle)
+
+
+bodyVectorX = lengthdir_x(bodyWidth, bodyAngle)
+bodyVectorY = lengthdir_y(bodyWidth, bodyAngle)
+
+movementVectorX = lengthdir_x(movementSpeed, movementAngle)
+movementVectorY = lengthdir_y(movementSpeed, movementAngle)
 
 /// End of "internal math" block
 /////////////////////////////////////////////
 
 
-// Only use the "movementAngle" value if we've told it to override
-var mvtAngle;
-if(movementIsSameAsBodyAngle)
-	mvtAngle = bodyAngle
-else
-	mvtAngle = movementAngle;
-movementVectorX = lengthdir_x(movementSpeed, mvtAngle)
-movementVectorY = lengthdir_y(movementSpeed, mvtAngle)
-
+// Movement
 var xx = x;
 var yy = y;
 

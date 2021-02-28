@@ -5,8 +5,8 @@ if (live_call()) return live_result;
 
 
 var paddleImageIndex = 0;
-var paddleXScale = 1.0*width/sprite_get_width(bodySprite);
-var paddleYScale = 1.0*height/sprite_get_height(bodySprite);
+var paddleXScale = 1.0*bodyWidth/sprite_get_width(bodySprite);
+var paddleYScale = 1.0*bodyHeight/sprite_get_height(bodySprite);
 
 // Debug settings, remove/comment out when done -- Micha TODO
 //bodySprite = sprPaddleBaton;
@@ -14,8 +14,8 @@ var paddleYScale = 1.0*height/sprite_get_height(bodySprite);
 //paddleXScale = 1
 //paddleYScale = 1
 //bodyAngle = 10;
-//color = c_lime
-//colorAlpha = 0.6;
+//blendColor = c_lime
+//blendColorAlpha = 0.6;
 
 
 var paddleLeftEndX = x - bodyVectorX/2; // div by 2 = half of the length of the paddle
@@ -40,10 +40,19 @@ if(shouldDrawPath) {
 }
 
 // Draw the paddle and its two ends
-draw_sprite_ext(bodySprite, paddleImageIndex, x, y, paddleXScale, paddleYScale, bodyAngle, color, colorAlpha);
-draw_sprite_ext(leftEndSprite, paddleImageIndex, paddleLeftEndX, paddleLeftEndY, paddleXScale, paddleYScale, bodyAngle, color, colorAlpha);
-draw_sprite_ext(rightEndSprite, paddleImageIndex, paddleRightEndX, paddleRightEndY, paddleXScale, paddleYScale, bodyAngle, color, colorAlpha);
+draw_sprite_ext(bodySprite, paddleImageIndex, x, y, paddleXScale, paddleYScale, bodyAngle, blendColor, blendColorAlpha);
+draw_sprite_ext(leftEndSprite, paddleImageIndex, paddleLeftEndX, paddleLeftEndY, paddleXScale, paddleYScale, bodyAngle, blendColor, blendColorAlpha);
+draw_sprite_ext(rightEndSprite, paddleImageIndex, paddleRightEndX, paddleRightEndY, paddleXScale, paddleYScale, bodyAngle, blendColor, blendColorAlpha);
 
 
-
-
+// Draw some prototype characters
+var charVectorX = bodyVectorX/6;
+var charVectorY = bodyVectorY/6;
+//draw_sprite(sprCharacter1, 0, paddleLeftEndX, paddleLeftEndY);
+//draw_sprite(sprCharacter1, 0, paddleRightEndX, paddleRightEndY);
+//var paddleHalfLeftEndX = x - bodyVectorX/4;
+//var paddleHalfLeftEndY = y - bodyVectorY/4;
+draw_sprite(sprCharacter1, 0, x - charVectorX*3, y - charVectorY*3);
+draw_sprite(sprCharacter1, 0, x - charVectorX*1, y - charVectorY*1);
+draw_sprite(sprCharacter1, 0, x + charVectorX*1, y + charVectorY*1);
+draw_sprite(sprCharacter1, 0, x + charVectorX*3, y + charVectorY*3);

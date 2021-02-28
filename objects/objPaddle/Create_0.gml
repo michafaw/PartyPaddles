@@ -4,29 +4,55 @@
 if (live_call()) return live_result;
 
 
-width = 64
-height = 24
-bodyAngle = 90; // Represents the angle that the right end of the paddle points toward, -90 to 90
+// The variables in the folowing section are defined in "Variable Definitions"
+
+/*
+bodyWidth = 64
+bodyHeight = 24
+bodyAngle = -10; // Represents the angle that the right end of the paddle points toward, -90 to 90
 
 bodySprite = sprPaddleBaton
 leftEndSprite = sprPaddleLeftEnd
 rightEndSprite = sprPaddleRightEnd
-color = c_white;
-colorAlpha = 0.8;
+blendColor = c_white;
+blendColorAlpha = 0.8;
 
-movementIsSameAsBodyAngle = true;
+bodyAngleMatchesMovement = true;
 
 movementSpeed = 3.5;
-movementAngle = 0;
+movementAngle = 30;
 movementRange = 60; // Total distance from the start point that the paddle can move out (full range is x2)
 
-rightKey = vk_right;
-leftKey = vk_left;
+playerNumber = 1; // 0 is AI, 1 is player 1 (left/right), 2 is player 2 (a/d)
+
 
 shouldDrawPath = true;
 pathColor = scribble_rgb_to_bgr(0x222222);
+*/
+//bodyWidth = 50
+//bodyHeight = 50
+//bodyAngle = 90;
+//bodyAngleMatchesMovement = false;
+//movementAngle = 30;
 
-
+////////////////////////////////////
 /// Internal variables
 homeX = x;
 homeY = y;
+
+// Override bodyAngle with the movementAngle if requested
+if(bodyAngleMatchesMovement)
+	bodyAngle = movementAngle;
+
+// Convert this to call object/struct's variables or methods, or a script
+if(playerNumber == 1) {
+	rightKey = vk_right;
+	leftKey = vk_left;
+} else if(playerNumber == 2) {
+	rightKey = ord("A");
+	leftKey = ord("D");
+} else {
+	// AI player, but give it a key anyway for now
+	rightKey = vk_control;
+	leftKey = vk_control;
+}
