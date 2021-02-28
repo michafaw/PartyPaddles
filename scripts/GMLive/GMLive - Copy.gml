@@ -1,6 +1,6 @@
 // GMLive.gml (c) YellowAfterlife, 2017+
 // PLEASE DO NOT FORGET to remove paid extensions from your project when publishing the source code!
-// Generated at 2021-02-08 14:51:22 (9019ms) for v2.3+
+// Generated at 2021-02-08 02:20:35 (9064ms) for v2.3+
 globalvar gml_std_haxe_type_markerValue;if(live_enabled)gml_std_haxe_type_markerValue=[];
 globalvar mt_gml_std_Date;if(live_enabled)mt_gml_std_Date=new gml_std_haxe_class(-1,"gml_std_Date");
 globalvar mt_gml_builder;if(live_enabled)mt_gml_builder=new gml_std_haxe_class(-1,"gml_builder");
@@ -118,14 +118,14 @@ function gml_builder(l_pg,l_src)constructor{
 		var l_pmax=0;
 		var l_n=ds_list_size(l_ops);
 		for(l_i=0;l_i<l_n;l_i++){
-			var l_pcur=gml_op_get_priority(ds_list_find_value(l_ops,l_i));
+			var l_pcur=gml_op_get_priority(l_ops[|l_i]);
 			if(l_pcur<l_pmin)l_pmin=l_pcur;
 			if(l_pcur>l_pmax)l_pmax=l_pcur;
 		}
 		while(l_pmin<=l_pmax){
 			for(l_i=0;l_i<l_n;l_i++){
-				if(gml_op_get_priority(ds_list_find_value(l_ops,l_i))==l_pmin){
-					ds_list_set(l_nodes,l_i,gml_node_bin_op(ds_list_find_value(l_locs,l_i),ds_list_find_value(l_ops,l_i),ds_list_find_value(l_nodes,l_i),ds_list_find_value(l_nodes,l_i+1)));
+				if(gml_op_get_priority(l_ops[|l_i])==l_pmin){
+					l_nodes[|l_i]=gml_node_bin_op(l_locs[|l_i],l_ops[|l_i],l_nodes[|l_i],l_nodes[|l_i+1]);
 					ds_list_delete(l_nodes,l_i+1);
 					ds_list_delete(l_ops,l_i);
 					ds_list_delete(l_locs,l_i);
@@ -135,7 +135,7 @@ function gml_builder(l_pg,l_src)constructor{
 			}
 			l_pmin++;
 		}
-		self.h_out_node=ds_list_find_value(l_nodes,0);
+		self.h_out_node=l_nodes[|0];
 		ds_list_destroy(l_nodes);
 		ds_list_destroy(l_ops);
 		ds_list_destroy(l_locs);
@@ -964,6 +964,7 @@ function gml_builder(l_pg,l_src)constructor{
 						if(l__g.__enumIndex__==10)l_s1=l__g.h_id; else return self.h_error("Expected a macro name",self.h_tokens[self.h_offset]);
 					} else l_add=true;
 					if(self.h_build_line(false))return true;
+					show_debug_message("Adding macro "+l_s1+" "+(string(l_add)));
 					if(l_add){
 						var l_i1=gml_std_gml_internal_ArrayImpl_indexOf(self.h_macro_names,l_s1);
 						if(l_i1<0){
@@ -1546,14 +1547,14 @@ function gml_compile_node(l_q,l_r,l_out){
 					l_p0=ds_list_size(l_r);
 					ds_list_add(l_r,gml_action_bool_and(l_d,0));
 					if(gml_compile_node(l_x2,l_r,true))return true;
-					ds_list_set(l_r,l_p0,gml_action_bool_and(l_d,ds_list_size(l_r)));
+					l_r[|l_p0]=gml_action_bool_and(l_d,ds_list_size(l_r));
 					break;
 				case 96:
 					if(gml_compile_node(l_x,l_r,true))return true;
 					l_p0=ds_list_size(l_r);
 					ds_list_add(l_r,gml_action_bool_or(l_d,0));
 					if(gml_compile_node(l_x2,l_r,true))return true;
-					ds_list_set(l_r,l_p0,gml_action_bool_or(l_d,ds_list_size(l_r)));
+					l_r[|l_p0]=gml_action_bool_or(l_d,ds_list_size(l_r));
 					break;
 				default:
 					if(gml_compile_node(l_x,l_r,true))return true;
@@ -1765,10 +1766,10 @@ function gml_compile_node(l_q,l_r,l_out){
 			if(l_x!=undefined){
 				l_n=ds_list_size(l_r);
 				ds_list_add(l_r,gml_action_jump(l_d,0));
-				ds_list_set(l_r,l_i,gml_action_jump_unless(l_d,ds_list_size(l_r)));
+				l_r[|l_i]=gml_action_jump_unless(l_d,ds_list_size(l_r));
 				if(gml_compile_node(l_x,l_r,false))return true;
-				ds_list_set(l_r,l_n,gml_action_jump(l_d,ds_list_size(l_r)));
-			} else ds_list_set(l_r,l_i,gml_action_jump_unless(l_d,ds_list_size(l_r)));
+				l_r[|l_n]=gml_action_jump(l_d,ds_list_size(l_r));
+			} else l_r[|l_i]=gml_action_jump_unless(l_d,ds_list_size(l_r));
 			break;
 		case 94:
 			l_d=l__g.h_d;
@@ -1778,9 +1779,9 @@ function gml_compile_node(l_q,l_r,l_out){
 			if(gml_compile_node(l__g.h_then,l_r,l_out))return true;
 			l_n=ds_list_size(l_r);
 			ds_list_add(l_r,gml_action_jump(l_d,0));
-			ds_list_set(l_r,l_i,gml_action_jump_unless(l_d,ds_list_size(l_r)));
+			l_r[|l_i]=gml_action_jump_unless(l_d,ds_list_size(l_r));
 			if(gml_compile_node(l__g.h_not,l_r,l_out))return true;
-			ds_list_set(l_r,l_n,gml_action_jump(l_d,ds_list_size(l_r)));
+			l_r[|l_n]=gml_action_jump(l_d,ds_list_size(l_r));
 			break;
 		case 101:
 			l_d=l__g.h_d;
@@ -1800,13 +1801,13 @@ function gml_compile_node(l_q,l_r,l_out){
 			l_p2=ds_list_size(l_r);
 			ds_list_add(l_r,gml_action_discard(l_d));
 			for(l_k=l_p0;l_k<l_p2;l_k++){
-				var l__g1=ds_list_find_value(l_r,l_k);
+				var l__g1=l_r[|l_k];
 				switch(l__g1.__enumIndex__){
-					case 68:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p1));break;
-					case 67:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p2));break;
+					case 68:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p1);break;
+					case 67:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p2);break;
 				}
 			}
-			ds_list_set(l_r,l_n,gml_action_repeat_pre(l_d,ds_list_size(l_r)));
+			l_r[|l_n]=gml_action_repeat_pre(l_d,ds_list_size(l_r));
 			break;
 		case 98:
 			l_d=l__g.h_d;
@@ -1823,12 +1824,12 @@ function gml_compile_node(l_q,l_r,l_out){
 			gml_compile_curr_break=l_pb;
 			ds_list_add(l_r,gml_action_jump(l_d,l_p0));
 			l_p2=ds_list_size(l_r);
-			ds_list_set(l_r,l_p1,gml_action_jump_unless(l_d,l_p2));
+			l_r[|l_p1]=gml_action_jump_unless(l_d,l_p2);
 			for(l_k=l_p1;l_k<l_p2;l_k++){
-				var l__g1=ds_list_find_value(l_r,l_k);
+				var l__g1=l_r[|l_k];
 				switch(l__g1.__enumIndex__){
-					case 68:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p0));break;
-					case 67:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p2));break;
+					case 68:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p0);break;
+					case 67:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p2);break;
 				}
 			}
 			break;
@@ -1850,10 +1851,10 @@ function gml_compile_node(l_q,l_r,l_out){
 			if(l_tmp)ds_list_add(l_r,gml_action_jump_unless(l_d,l_p0)); else ds_list_add(l_r,gml_action_jump_if(l_d,l_p0));
 			l_p2=ds_list_size(l_r);
 			for(l_k=l_p0;l_k<l_p1;l_k++){
-				var l__g1=ds_list_find_value(l_r,l_k);
+				var l__g1=l_r[|l_k];
 				switch(l__g1.__enumIndex__){
-					case 68:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p1));break;
-					case 67:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p2));break;
+					case 68:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p1);break;
+					case 67:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p2);break;
 				}
 			}
 			break;
@@ -1875,10 +1876,10 @@ function gml_compile_node(l_q,l_r,l_out){
 			if(l_tmp)ds_list_add(l_r,gml_action_jump_unless(l_d,l_p0)); else ds_list_add(l_r,gml_action_jump_if(l_d,l_p0));
 			l_p2=ds_list_size(l_r);
 			for(l_k=l_p0;l_k<l_p1;l_k++){
-				var l__g1=ds_list_find_value(l_r,l_k);
+				var l__g1=l_r[|l_k];
 				switch(l__g1.__enumIndex__){
-					case 68:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p1));break;
-					case 67:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p2));break;
+					case 68:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p1);break;
+					case 67:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p2);break;
 				}
 			}
 			break;
@@ -1900,12 +1901,12 @@ function gml_compile_node(l_q,l_r,l_out){
 			if(gml_compile_node(l__g.h_post,l_r,false))return true;
 			ds_list_add(l_r,gml_action_jump(l_d,l_p0));
 			l_p3=ds_list_size(l_r);
-			ds_list_set(l_r,l_p1,gml_action_jump_unless(l_d,l_p3));
+			l_r[|l_p1]=gml_action_jump_unless(l_d,l_p3);
 			for(l_k=l_p1;l_k<l_p2;l_k++){
-				var l__g1=ds_list_find_value(l_r,l_k);
+				var l__g1=l_r[|l_k];
 				switch(l__g1.__enumIndex__){
-					case 68:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p2));break;
-					case 67:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p3));break;
+					case 68:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p2);break;
+					case 67:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p3);break;
 				}
 			}
 			break;
@@ -1946,11 +1947,11 @@ function gml_compile_node(l_q,l_r,l_out){
 					var l_cl1=l_caseLabels[l_i];
 					l_l=array_length(l_cl1);
 					for(l_k=0;l_k<l_l;l_k++){
-						ds_list_set(l_r,l_cl1[l_k],gml_action_switch_case(l_d,ds_list_size(l_r)));
+						l_r[|l_cl1[l_k]]=gml_action_switch_case(l_d,ds_list_size(l_r));
 					}
 					if(gml_compile_node(l__cc[l_i].expr,l_r,false))return true;
 				}
-				ds_list_set(l_r,l_defCasePos,gml_action_jump(l_d,ds_list_size(l_r)));
+				l_r[|l_defCasePos]=gml_action_jump(l_d,ds_list_size(l_r));
 				l_x=l__g.h_def;
 				if(l_x!=undefined&&gml_compile_node(l_x,l_r,false))return true;
 				gml_compile_curr_break=l_pb;
@@ -1964,7 +1965,7 @@ function gml_compile_node(l_q,l_r,l_out){
 					l_l=array_length(l__cv);
 					for(l_k=0;l_k<l_l;l_k++){
 						var l_v=gml_node_to_value(l__cv[l_k]);
-						ds_map_set(l_jt,l_v[0],ds_list_size(l_r));
+						l_jt[?l_v[0]]=ds_list_size(l_r);
 					}
 					if(gml_compile_node(l__cc[l_i].expr,l_r,false))return true;
 				}
@@ -1972,15 +1973,15 @@ function gml_compile_node(l_q,l_r,l_out){
 				l_x=l__g.h_def;
 				if(l_x!=undefined&&gml_compile_node(l_x,l_r,false))return true;
 				gml_compile_curr_break=l_pb;
-				ds_list_set(l_r,l_p0,gml_action_switch(l_d,l_jt,l_p1));
+				l_r[|l_p0]=gml_action_switch(l_d,l_jt,l_p1);
 			}
 			l_p2=ds_list_size(l_r);
 			for(l_k=l_p0;l_k<l_p2;l_k++){
-				var l__g1=ds_list_find_value(l_r,l_k);
+				var l__g1=l_r[|l_k];
 				if(l__g1.__enumIndex__==67){
 					var l_lp=l__g1.h_lp;
 					var l_d1=l__g1.h_d;
-					if(l_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l_d1,l_p2));
+					if(l_lp==l_p0)l_r[|l_k]=gml_action_jump(l_d1,l_p2);
 				}
 			}
 			break;
@@ -2000,12 +2001,12 @@ function gml_compile_node(l_q,l_r,l_out){
 			ds_list_add(l_r,gml_action_jump(l_d,l_p0));
 			l_p1=ds_list_size(l_r);
 			ds_list_add(l_r,gml_action_with_post(l_d));
-			ds_list_set(l_r,l_p0,gml_action_with_next(l_d,l_p1));
+			l_r[|l_p0]=gml_action_with_next(l_d,l_p1);
 			for(l_k=l_p0;l_k<l_p1;l_k++){
-				var l__g1=ds_list_find_value(l_r,l_k);
+				var l__g1=l_r[|l_k];
 				switch(l__g1.__enumIndex__){
-					case 68:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p0));break;
-					case 67:if(l__g1.h_lp==l_p0)ds_list_set(l_r,l_k,gml_action_jump(l__g1.h_d,l_p1));break;
+					case 68:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p0);break;
+					case 67:if(l__g1.h_lp==l_p0)l_r[|l_k]=gml_action_jump(l__g1.h_d,l_p1);break;
 				}
 			}
 			break;
@@ -2016,10 +2017,10 @@ function gml_compile_node(l_q,l_r,l_out){
 			if(gml_compile_node(l__g.h_node,l_r,false))return true;
 			l_p1=ds_list_size(l_r);
 			ds_list_add(l_r,gml_action_finally(l_d,0));
-			ds_list_set(l_r,l_p0,gml_action_try(l_d,ds_list_size(l_r)));
+			l_r[|l_p0]=gml_action_try(l_d,ds_list_size(l_r));
 			ds_list_add(l_r,gml_action_catch(l_d,gml_compile_curr_script.h_local_map.h_get(l__g.h_cap)));
 			if(gml_compile_node(l__g.h_cat,l_r,false))return true;
-			ds_list_set(l_r,l_p1,gml_action_finally(l_d,ds_list_size(l_r)));
+			l_r[|l_p1]=gml_action_finally(l_d,ds_list_size(l_r));
 			break;
 		case 111:
 			if(gml_compile_node(l__g.h_x,l_r,true))return true;
@@ -2141,9 +2142,9 @@ function gml_parser_run(l_src,l_temStart){
 			case 10:
 				if(l_checkLine){
 					l_i=ds_list_size(l_out)-1;
-					var l__g=ds_list_find_value(l_out,l_i);
+					var l__g=l_out[|l_i];
 					if(l__g.__enumIndex__==0){
-						if(l__g.h_lb==false)ds_list_set(l_out,l_i,gml_token_header(l__g.h_d,l__g.h_name,true));
+						if(l__g.h_lb==false)l_out[|l_i]=gml_token_header(l__g.h_d,l__g.h_name,true);
 					}
 				}
 				l_row++;
@@ -2428,7 +2429,7 @@ function gml_parser_run(l_src,l_temStart){
 					l_n=ds_list_size(l_out);
 					l_tks=array_create(l_n);
 					for(l_i=0;l_i<l_n;l_i++){
-						l_tks[@l_i]=ds_list_find_value(l_out,l_i);
+						l_tks[@l_i]=l_out[|l_i];
 					}
 					gml_parser_tokens_found=ds_list_size(l_out);
 					ds_list_destroy(l_out);
@@ -2736,7 +2737,7 @@ function gml_parser_run(l_src,l_temStart){
 	l_n=ds_list_size(l_out);
 	l_tks=array_create(l_n);
 	for(l_i=0;l_i<l_n;l_i++){
-		l_tks[@l_i]=ds_list_find_value(l_out,l_i);
+		l_tks[@l_i]=l_out[|l_i];
 	}
 	gml_parser_tokens_found=ds_list_size(l_out);
 	ds_list_destroy(l_out);
@@ -6461,7 +6462,7 @@ function gml_node_clone(l_q){
 if(live_enabled)
 function gml_node_seek_all_out(l_q,l_st,l_c,l_si){
 	var l_w,l_i;
-	var l_par=ds_list_find_value(l_st,l_si);
+	var l_par=l_st[|l_si];
 	if(l_par==undefined)return false;
 	var l__g=l_par;
 	switch(l__g.__enumIndex__){
@@ -7530,7 +7531,7 @@ function gml_script(l_src,l_name,l_pos)constructor{
 			var l_this1=self.h_actions;
 			var l_i=0;
 			for(var l__g1=ds_list_size(l_this1);l_i<l__g1;l_i++){
-				var l_q=ds_list_find_value(l_this1,l_i);
+				var l_q=l_this1[|l_i];
 				if(l_q.__enumIndex__==60)ds_map_destroy(l_q.h_jumptable);
 			}
 			ds_list_destroy(l_this1);
@@ -8209,7 +8210,7 @@ function gml_seek_adjfix_proc(l_q,l_st){
 			var l_pre;
 			if(l_q.__enumIndex__==27)l_pre=true; else l_pre=false;
 			var l_o;
-			var l_inBlock=gml_node_is_in_block(l_x,ds_list_find_value(l_st,0));
+			var l_inBlock=gml_node_is_in_block(l_x,l_st[|0]);
 			if(l_pre||l_inBlock){
 				var l__g=l_x;
 				switch(l__g.__enumIndex__){
@@ -8239,7 +8240,7 @@ function gml_seek_adjfix_proc(l_q,l_st){
 			var l_pre;
 			if(l_q.__enumIndex__==27)l_pre=true; else l_pre=false;
 			var l_o;
-			var l_inBlock=gml_node_is_in_block(l_x,ds_list_find_value(l_st,0));
+			var l_inBlock=gml_node_is_in_block(l_x,l_st[|0]);
 			if(l_pre||l_inBlock){
 				var l__g1=l_x;
 				switch(l__g1.__enumIndex__){
@@ -8747,12 +8748,12 @@ function gml_seek_idents_proc(l_q,l_st){
 		if(l_flags!=undefined){
 			if((l_flags&4)!=0)gml_std_haxe_enum_tools_setTo(l_q,gml_node_env_fd(l_d,gml_node_self(l_d),l_s)); else gml_std_haxe_enum_tools_setTo(l_q,gml_node_env(l_d,l_s));
 			if(ds_list_size(l_st)>0){
-				var l__g=ds_list_find_value(l_st,0);
+				var l__g=l_st[|0];
 				switch(l__g.__enumIndex__){
 					case 56:
 						var l_k=l__g.h_id;
 						var l_d1=l__g.h_d;
-						if((l_flags&2)!=0)gml_std_haxe_enum_tools_setTo(ds_list_find_value(l_st,0),gml_node_env1d(l_d1,l_s,l_k)); else return gml_program_seek_inst.h_error("`"+l_s+"` is not an array.",l_d1);
+						if((l_flags&2)!=0)gml_std_haxe_enum_tools_setTo(l_st[|0],gml_node_env1d(l_d1,l_s,l_k)); else return gml_program_seek_inst.h_error("`"+l_s+"` is not an array.",l_d1);
 						break;
 					case 61:return gml_program_seek_inst.h_error("`"+l_s+"` is not a 2d array.",l__g.h_d);
 					default:if((l_flags&2)!=0)gml_std_haxe_enum_tools_setTo(l_q,gml_node_env1d(l_d,l_s,gml_node_number(l_d,0,undefined)));
@@ -9188,45 +9189,45 @@ if(live_enabled)
 function live_async_http_0(l_map){
 	var l_i,l_n,l_s,l_list,l_names,l_srcMap;
 	live_is_ready=true;
-	live_request_guid=ds_map_find_value(l_map,"guid");
-	if(ds_map_find_value(l_map,"version")==undefined||ds_map_find_value(l_map,"version")<105)throw gml_std_haxe_Exception_thrown("Outdated GMLive server detected! Please update the included files from the extension.");
-	l_list=ds_map_find_value(l_map,"shaders");
+	live_request_guid=l_map[?"guid"];
+	if(l_map[?"version"]==undefined||l_map[?"version"]<105)throw gml_std_haxe_Exception_thrown("Outdated GMLive server detected! Please update the included files from the extension.");
+	l_list=l_map[?"shaders"];
 	l_n=ds_list_size(l_list);
 	for(l_i=0;l_i<l_n;l_i++){
-		l_s=ds_list_find_value(l_list,l_i);
+		l_s=l_list[|l_i];
 		gml_asset_add(l_s,asset_get_index(l_s));
 	}
 	for(var l__=0;l__<1;l__++){
-		l_list=ds_map_find_value(l_map,"animCurves");
+		l_list=l_map[?"animCurves"];
 		if(l_list==undefined){
 			live_log("Server init response is missing an animCurves list. You may need to update the server.");
 			continue;
 		}
 		l_n=ds_list_size(l_list);
 		for(l_i=0;l_i<l_n;l_i++){
-			l_s=ds_list_find_value(l_list,l_i);
+			l_s=l_list[|l_i];
 			gml_asset_add(l_s,asset_get_index(l_s));
 		}
 	}
-	l_list=ds_map_find_value(l_map,"scripts");
+	l_list=l_map[?"scripts"];
 	l_n=ds_list_size(l_list);
 	for(l_i=0;l_i<l_n;l_i+=2){
-		var l_scrName=ds_list_find_value(l_list,l_i);
+		var l_scrName=l_list[|l_i];
 		var l_scrFunc=asset_get_index(l_scrName);
 		if(l_scrFunc==-1)l_scrFunc=asset_get_index(l_scrName);
-		gml_func_add(ds_list_find_value(l_list,l_i+1),l_scrFunc);
+		gml_func_add(l_list[|l_i+1],l_scrFunc);
 		gml_func_script_id.h_set(l_scrName,l_scrFunc);
 	}
-	l_list=ds_map_find_value(l_map,"globals");
+	l_list=l_map[?"globals"];
 	l_n=ds_list_size(l_list);
 	if(l_n>0){
 		var l_buf=buffer_create(1024,buffer_grow,1);
 		buffer_seek(l_buf,buffer_seek_start,0);
 		buffer_write(l_buf,buffer_text,"globalvar ");
-		buffer_write(l_buf,buffer_text,ds_list_find_value(l_list,0));
+		buffer_write(l_buf,buffer_text,l_list[|0]);
 		for(l_i=1;l_i<l_n;l_i++){
 			buffer_write(l_buf,buffer_text,", ");
-			buffer_write(l_buf,buffer_text,ds_list_find_value(l_list,l_i));
+			buffer_write(l_buf,buffer_text,l_list[|l_i]);
 		}
 		buffer_write(l_buf,buffer_string,";");
 		buffer_seek(l_buf,buffer_seek_start,0);
@@ -9235,59 +9236,59 @@ function live_async_http_0(l_map){
 	} else live_live_globals=undefined;
 	l_srcMap=live_live_macros;
 	l_srcMap.h_clear();
-	l_list=ds_map_find_value(l_map,"macros");
+	l_list=l_map[?"macros"];
 	l_n=ds_list_size(l_list);
 	for(l_i=0;l_i<l_n;l_i+=2){
-		l_s=ds_list_find_value(l_list,l_i);
+		l_s=l_list[|l_i];
 		var l_s1="macro:"+l_s;
-		l_srcMap.h_set(l_s,new gml_source(l_s1,"#macro "+l_s+" "+gml_std_Std_stringify(ds_list_find_value(l_list,l_i+1)),l_s1,true));
+		l_srcMap.h_set(l_s,new gml_source(l_s1,"#macro "+l_s+" "+gml_std_Std_stringify(l_list[|l_i+1]),l_s1,true));
 	}
 	l_srcMap=live_live_enums;
 	l_srcMap.h_clear();
-	l_list=ds_map_find_value(l_map,"enums");
-	l_names=ds_map_find_value(l_map,"enumnames");
+	l_list=l_map[?"enums"];
+	l_names=l_map[?"enumnames"];
 	l_n=ds_list_size(l_list);
 	for(l_i=0;l_i<l_n;l_i++){
-		l_s=ds_list_find_value(l_list,l_i);
-		l_s=ds_list_find_value(l_names,l_i);
-		l_srcMap.h_set(l_s,new gml_source("enum "+l_s,ds_list_find_value(l_list,l_i),"enum "+l_s,true));
+		l_s=l_list[|l_i];
+		l_s=l_names[|l_i];
+		l_srcMap.h_set(l_s,new gml_source("enum "+l_s,l_list[|l_i],"enum "+l_s,true));
 	}
 	live_log("Ready!");
 }
 
 if(live_enabled)
 function live_async_http_1(l_map){
-	var l_list=ds_map_find_value(l_map,"files");
+	var l_list=l_map[?"files"];
 	var l_n=ds_list_size(l_list);
 	var l_name;
 	var l_i=-1;
 	while(++l_i<l_n){
-		var l_fmap=ds_list_find_value(l_list,l_i);
-		var l_ident=ds_map_find_value(l_fmap,"ident");
-		var l_code=ds_map_find_value(l_fmap,"code");
-		l_name=ds_map_find_value(l_fmap,"name");
+		var l_fmap=l_list[|l_i];
+		var l_ident=l_fmap[?"ident"];
+		var l_code=l_fmap[?"code"];
+		l_name=l_fmap[?"name"];
 		live_update_script(l_name,l_ident,l_code);
 	}
-	l_list=ds_map_find_value(l_map,"sprites");
+	l_list=l_map[?"sprites"];
 	if(l_list!=undefined){
 		l_n=ds_list_size(l_list);
 		l_i=-1;
 		while(++l_i<l_n){
-			var l_sup=ds_list_find_value(l_list,l_i);
-			l_name=ds_map_find_value(l_sup,"name");
+			var l_sup=l_list[|l_i];
+			l_name=l_sup[?"name"];
 			var l_spr=asset_get_index(l_name);
 			if(l_spr==-1){
 				live_log("Error: can't find sprite "+l_name+" for reload.");
 				continue;
 			}
-			var l_sx=ds_map_find_value(l_sup,"xorig");
-			var l_sy=ds_map_find_value(l_sup,"yorig");
-			var l_frames=ds_map_find_value(l_sup,"frames");
+			var l_sx=l_sup[?"xorig"];
+			var l_sy=l_sup[?"yorig"];
+			var l_frames=l_sup[?"frames"];
 			var l_out=-1;
 			var l_tmp=live_temp_path+".png";
 			var l_i1=0;
 			for(var l__g1=ds_list_size(l_frames);l_i1<l__g1;l_i1++){
-				var l_tb=buffer_base64_decode(ds_list_find_value(l_frames,l_i1));
+				var l_tb=buffer_base64_decode(l_frames[|l_i1]);
 				if(l_tb==-1){
 					live_log("Error: couldn't decode base64 for "+l_name+".");
 					continue;
@@ -9303,32 +9304,32 @@ function live_async_http_1(l_map){
 			}
 			if(l_out!=-1){
 				sprite_assign(l_spr,l_out);
-				sprite_collision_mask(l_spr,ds_map_find_value(l_sup,"sepMasks"),ds_map_find_value(l_sup,"bboxMode"),ds_map_find_value(l_sup,"bboxLeft"),ds_map_find_value(l_sup,"bboxTop"),ds_map_find_value(l_sup,"bboxRight"),ds_map_find_value(l_sup,"bboxBottom"),ds_map_find_value(l_sup,"colKind"),ds_map_find_value(l_sup,"colTolerance"));
+				sprite_collision_mask(l_spr,l_sup[?"sepMasks"],l_sup[?"bboxMode"],l_sup[?"bboxLeft"],l_sup[?"bboxTop"],l_sup[?"bboxRight"],l_sup[?"bboxBottom"],l_sup[?"colKind"],l_sup[?"colTolerance"]);
 				sprite_delete(l_out);
 				live_log("Reloaded "+l_name+".");
 			}
 			file_delete(l_tmp);
 		}
 	}
-	l_list=ds_map_find_value(l_map,"shadersUpd");
+	l_list=l_map[?"shadersUpd"];
 	if(l_list!=undefined){
 		l_n=ds_list_size(l_list);
 		l_i=-1;
 		while(++l_i<l_n){
-			var l_sup=ds_list_find_value(l_list,l_i);
-			l_name=ds_map_find_value(l_sup,"name");
-			live_shader_updated(asset_get_index(l_name),ds_map_find_value(l_sup,"vertex"),ds_map_find_value(l_sup,"fragment"));
+			var l_sup=l_list[|l_i];
+			l_name=l_sup[?"name"];
+			live_shader_updated(asset_get_index(l_name),l_sup[?"vertex"],l_sup[?"fragment"]);
 			live_log("Reloaded "+l_name+".");
 		}
 	}
-	l_list=ds_map_find_value(l_map,"rooms");
+	l_list=l_map[?"rooms"];
 	if(l_list!=undefined){
 		l_n=ds_list_size(l_list);
 		l_i=-1;
 		while(++l_i<l_n){
-			var l_ru=ds_list_find_value(l_list,l_i);
+			var l_ru=l_list[|l_i];
 			var l_rq=asset_get_index(l_ru[?"name"]);
-			ds_map_set(live_live_room_data,l_rq,l_ru[?"json"]);
+			live_live_room_data[?l_rq]=l_ru[?"json"];
 			live_room_updated(l_rq);
 		}
 	}
@@ -9336,7 +9337,7 @@ function live_async_http_1(l_map){
 
 if(live_enabled)
 function live_async_http_check(l_e){
-	return ds_map_find_value(l_e,"id")==live_request_id&&ds_map_find_value(l_e,"status")<=0;
+	return l_e[?"id"]==live_request_id&&l_e[?"status"]<=0;
 }
 
 function live_async_http(l_e){
@@ -9345,8 +9346,8 @@ function live_async_http(l_e){
 		if(l_e==undefined)l_e=async_load;
 		if(!live_async_http_check(l_e))return 0;
 		live_request_id=undefined;
-		if(ds_map_find_value(l_e,"status")<0||ds_map_find_value(l_e,"result")==undefined)return 0;
-		var l_json=ds_map_find_value(l_e,"result");
+		if(l_e[?"status"]<0||l_e[?"result"]==undefined)return 0;
+		var l_json=l_e[?"result"];
 		var l_map=json_decode(l_json);
 		if(l_map==-1||ds_map_exists(l_map,"default")){
 			if(string_char_at(l_json,1)=="{"&&string_char_at(l_json,string_length(l_json)-1+1)=="]")l_json+="}";
@@ -9372,7 +9373,7 @@ function shader_set_live(l_sh,l_live1){
 		var l_i;
 		if(l_live1){
 			if(ds_map_exists(live_shader_live_shaders,l_sh))return 0;
-			ds_map_set(live_shader_live_shaders,l_sh,true);
+			live_shader_live_shaders[?l_sh]=true;
 			l_i=ds_list_find_index(live_shader_live_shaders_stop,l_sh);
 			if(l_i>=0)ds_list_delete(live_shader_live_shaders_stop,l_i);
 			ds_list_add(live_shader_live_shaders_start,l_sh);
@@ -10814,7 +10815,7 @@ function live_update_script_impl(l_name,l_ident,l_code){
 		var l_srci=ds_list_size(l_acc);
 		var l_srcs=array_create(l_srci);
 		while(--l_srci>=0){
-			l_srcs[@l_srci]=ds_list_find_value(l_acc,l_srci);
+			l_srcs[@l_srci]=l_acc[|l_srci];
 		}
 		var l_pg=new gml_program(l_srcs);
 		if(!l_pg.h_is_ready){
@@ -11091,7 +11092,7 @@ function sprite_set_live(l_spr,l_live1){
 		var l_i;
 		if(l_live1){
 			if(ds_map_exists(live_live_sprites,l_spr))return 0;
-			ds_map_set(live_live_sprites,l_spr,true);
+			live_live_sprites[?l_spr]=true;
 			l_i=ds_list_find_index(live_live_sprites_stop,l_spr);
 			if(l_i>=0)ds_list_delete(live_live_sprites_stop,l_i);
 			ds_list_add(live_live_sprites_start,l_spr);
@@ -11110,7 +11111,7 @@ function room_set_live(l_rm,l_enable){
 		var l_i;
 		if(l_enable){
 			if(ds_map_exists(live_live_rooms,l_rm))return 0;
-			ds_map_set(live_live_rooms,l_rm,true);
+			live_live_rooms[?l_rm]=true;
 			l_i=ds_list_find_index(live_live_rooms_stop,l_rm);
 			if(l_i>=0)ds_list_delete(live_live_rooms_stop,l_i);
 			ds_list_add(live_live_rooms_start,l_rm);
@@ -11363,60 +11364,60 @@ function live_update(){
 					var l_sl=live_live_sprites_stop;
 					var l_sln=ds_list_size(l_sl);
 					if(l_sln>0){
-						l_url+="&sprites"+string(0)+"="+sprite_get_name(ds_list_find_value(l_sl,0));
+						l_url+="&sprites"+string(0)+"="+sprite_get_name(l_sl[|0]);
 						var l_i=1;
 						for(var l__g1=l_sln;l_i<l__g1;l_i++){
-							l_url+="+"+sprite_get_name(ds_list_find_value(l_sl,l_i));
+							l_url+="+"+sprite_get_name(l_sl[|l_i]);
 						}
 						ds_list_clear(l_sl);
 					}
 					var l_sl=live_live_sprites_start;
 					var l_sln=ds_list_size(l_sl);
 					if(l_sln>0){
-						l_url+="&sprites"+string(1)+"="+sprite_get_name(ds_list_find_value(l_sl,0));
+						l_url+="&sprites"+string(1)+"="+sprite_get_name(l_sl[|0]);
 						var l_i=1;
 						for(var l__g1=l_sln;l_i<l__g1;l_i++){
-							l_url+="+"+sprite_get_name(ds_list_find_value(l_sl,l_i));
+							l_url+="+"+sprite_get_name(l_sl[|l_i]);
 						}
 						ds_list_clear(l_sl);
 					}
 					var l_sl=live_shader_live_shaders_stop;
 					var l_sln=ds_list_size(l_sl);
 					if(l_sln>0){
-						l_url+="&shaders"+string(0)+"="+shader_get_name(ds_list_find_value(l_sl,0));
+						l_url+="&shaders"+string(0)+"="+shader_get_name(l_sl[|0]);
 						var l_i=1;
 						for(var l__g1=l_sln;l_i<l__g1;l_i++){
-							l_url+="+"+shader_get_name(ds_list_find_value(l_sl,l_i));
+							l_url+="+"+shader_get_name(l_sl[|l_i]);
 						}
 						ds_list_clear(l_sl);
 					}
 					var l_sl=live_shader_live_shaders_start;
 					var l_sln=ds_list_size(l_sl);
 					if(l_sln>0){
-						l_url+="&shaders"+string(1)+"="+shader_get_name(ds_list_find_value(l_sl,0));
+						l_url+="&shaders"+string(1)+"="+shader_get_name(l_sl[|0]);
 						var l_i=1;
 						for(var l__g1=l_sln;l_i<l__g1;l_i++){
-							l_url+="+"+shader_get_name(ds_list_find_value(l_sl,l_i));
+							l_url+="+"+shader_get_name(l_sl[|l_i]);
 						}
 						ds_list_clear(l_sl);
 					}
 					var l_rl=live_live_rooms_stop;
 					var l_rln=ds_list_size(l_rl);
 					if(l_rln>0){
-						l_url+="&rooms"+string(0)+"="+room_get_name(ds_list_find_value(l_rl,0));
+						l_url+="&rooms"+string(0)+"="+room_get_name(l_rl[|0]);
 						var l_i=1;
 						for(var l__g1=l_rln;l_i<l__g1;l_i++){
-							l_url+="+"+room_get_name(ds_list_find_value(l_rl,l_i));
+							l_url+="+"+room_get_name(l_rl[|l_i]);
 						}
 						ds_list_clear(l_rl);
 					}
 					var l_rl=live_live_rooms_start;
 					var l_rln=ds_list_size(l_rl);
 					if(l_rln>0){
-						l_url+="&rooms"+string(1)+"="+room_get_name(ds_list_find_value(l_rl,0));
+						l_url+="&rooms"+string(1)+"="+room_get_name(l_rl[|0]);
 						var l_i=1;
 						for(var l__g1=l_rln;l_i<l__g1;l_i++){
-							l_url+="+"+room_get_name(ds_list_find_value(l_rl,l_i));
+							l_url+="+"+room_get_name(l_rl[|l_i]);
 						}
 						ds_list_clear(l_rl);
 					}
@@ -11572,7 +11573,7 @@ function live_room_loader_add_layer(l_ql){
 			var l_sublayers=l_ql[?"layers"];
 			var l_i=ds_list_size(l_sublayers);
 			while(--l_i>=0){
-				live_room_loader_add_layer(ds_list_find_value(l_sublayers,l_i));
+				live_room_loader_add_layer(l_sublayers[|l_i]);
 			}
 			break;
 		case "GMRBackgroundLayer":
@@ -11625,7 +11626,7 @@ function live_room_loader_add_layer(l_ql){
 				for(var l__g1=l_qth;l_y<l__g1;l_y++){
 					var l_x=0;
 					for(var l__g3=l_qtw;l_x<l__g3;l_x++){
-						tilemap_set(l_rt,ds_list_find_value(l_qtd,l_qti++),l_x,l_y);
+						tilemap_set(l_rt,l_qtd[|l_qti++],l_x,l_y);
 					}
 				}
 			}
@@ -11649,11 +11650,11 @@ function live_room_loader_add_layer(l_ql){
 				var l_lco=live_room_loader_object_cache;
 				l_i=l_n;
 				while(--l_i>=0){
-					var l_qinst=ds_list_find_value(l_instances,l_i);
+					var l_qinst=l_instances[|l_i];
 					var l_rnext=instance_create_layer((l_rx+l_qinst[?"x"]),(l_ry+l_qinst[?"y"]),l_rl,l_base);
 					var l_qid=l_qinst[?"name"];
-					ds_map_set(live_room_loader_inst_map_yy,l_qid,l_qinst);
-					ds_map_set(live_room_loader_inst_map_gml,l_qid,l_rnext);
+					live_room_loader_inst_map_yy[?l_qid]=l_qinst;
+					live_room_loader_inst_map_gml[?l_qid]=l_rnext;
 					with (l_rnext) {
 						gml_const_add(l_qinst[?"name"],self);
 						l_aval=l_qinst[?"rotation"];
@@ -11673,10 +11674,10 @@ function live_room_loader_add_layer(l_ql){
 							self.image_alpha=(l_f>>24)/255;
 						}
 						l_s=l_qinst[?"obj"];
-						var l_id=ds_map_find_value(l_lco,l_s);
+						var l_id=l_lco[?l_s];
 						if(l_id==undefined){
 							l_id=asset_get_index(l_s);
-							ds_map_set(l_lco,l_s,l_id);
+							l_lco[?l_s]=l_id;
 						}
 						instance_change(l_id,false);
 					}
@@ -11697,14 +11698,14 @@ function live_room_loader_add_layer(l_ql){
 				l_ry=live_room_loader_room_y;
 				l_i=-1;
 				while(++l_i<l_n){
-					var l_qspr=ds_list_find_value(l_sprites,l_i);
+					var l_qspr=l_sprites[|l_i];
 					l_s=l_qspr[?"sprite"];
 					var l_rspr=l_rx+l_qspr[?"x"];
 					var l_rspr1=l_ry+l_qspr[?"y"];
-					var l_id=ds_map_find_value(l_lcs,l_s);
+					var l_id=l_lcs[?l_s];
 					if(l_id==undefined){
 						l_id=asset_get_index(l_s);
-						ds_map_set(l_lcs,l_s,l_id);
+						l_lcs[?l_s]=l_id;
 					}
 					var l_rspr2=layer_sprite_create(l_rl,l_rspr,l_rspr1,l_id);
 					l_aval=l_qspr[?"frameIndex"];
@@ -11742,18 +11743,18 @@ function live_room_loader_run_impl2(l_rm){
 	var l_lrs=l_rm[?"layers"];
 	var l_lrk=ds_list_size(l_lrs);
 	while(--l_lrk>=0){
-		live_room_loader_add_layer(ds_list_find_value(l_lrs,l_lrk));
+		live_room_loader_add_layer(l_lrs[|l_lrk]);
 	}
 	var l__g_list=l_rm[?"instanceCreationOrderIDs"];
 	var l__g_index=0;
 	while(l__g_index<ds_list_size(l__g_list)){
-		var l_id=ds_list_find_value(l__g_list,l__g_index++);
-		var l_qinst=ds_map_find_value(live_room_loader_inst_map_yy,l_id);
+		var l_id=l__g_list[|l__g_index++];
+		var l_qinst=live_room_loader_inst_map_yy[?l_id];
 		if(l_qinst==undefined){
 			live_log(l_id+" is in instanceCreationOrderIDs but no instance exists.");
 			continue;
 		}
-		live_room_loader_run_yy_inst_cc(ds_map_find_value(live_room_loader_inst_map_gml,l_id),l_qinst);
+		live_room_loader_run_yy_inst_cc(live_room_loader_inst_map_gml[?l_id],l_qinst);
 	}
 	ds_map_clear(live_room_loader_inst_map_gml);
 	ds_map_clear(live_room_loader_inst_map_yy);
@@ -11764,7 +11765,7 @@ function live_room_loader_run_impl2(l_rm){
 		if(l_qvs!=undefined){
 			var l_i=0;
 			for(var l__g1=ds_list_size(l_qvs);l_i<l__g1;l_i++){
-				var l_qv=ds_list_find_value(l_qvs,l_i);
+				var l_qv=l_qvs[|l_i];
 				if(l_qv==undefined)continue;
 				var l_rv=l_i;
 				l_aval=l_qv[?"visible"];
@@ -11812,7 +11813,7 @@ function live_room_start(){
 	if(live_enabled){
 		var l_rq=live_live_room;
 		if(!room_exists(l_rq))throw gml_std_haxe_Exception_thrown("No live room was specified.");
-		var l_rd=ds_map_find_value(live_live_room_data,l_rq);
+		var l_rd=live_live_room_data[?l_rq];
 		if(l_rd==undefined){
 			live_log("Warning: no live data had been received yet for "+room_get_name(l_rq)+", transitioning to the regular version.");
 			room_goto(l_rq);
@@ -11929,7 +11930,7 @@ function gml_action_list_print(l_this1){
 	var l_r="";
 	var l_i=0;
 	for(var l__g1=ds_list_size(l_this1);l_i<l__g1;l_i++){
-		var l_act=ds_list_find_value(l_this1,l_i);
+		var l_act=l_this1[|l_i];
 		if(l_i>0)l_r+="\n";
 		l_r+=string(l_i)+"\t"+gml_action_list_print_action(l_act);
 	}
@@ -11998,7 +11999,7 @@ function gml_thread(l_program,l_actions,l_args1,l_locals,l_self1,l_other1,l_offs
 		var l_q=self.h_scope;
 		if(l_q!=undefined)for(l_q=self.h_scope.h_next;l_q!=undefined;l_q=l_q.h_next){
 			var l_p=l_q.h_offset;
-			var l_ap=gml_std_haxe_enum_tools_getParameter(ds_list_find_value(l_q.h_actions,(l_p>0?l_p-1:0)),0);
+			var l_ap=gml_std_haxe_enum_tools_getParameter(l_q.h_actions[|(l_p>0?l_p-1:0)],0);
 			l_s+="\n called from "+l_ap.h_to_string();
 		}
 		return l_s;
@@ -12034,7 +12035,7 @@ function gml_thread(l_program,l_actions,l_args1,l_locals,l_self1,l_other1,l_offs
 			var l_proc,l_act;
 			while(l_scope.h_offset<l_len){
 				var l_pos=l_scope.h_offset;
-				l_act=ds_list_find_value(l_actions,l_pos);
+				l_act=l_actions[|l_pos];
 				l_scope.h_offset=l_pos+1;
 				if(l_allowExceptions){
 					l_handler=vm_v2_gml_thread_v2_handlers[l_act.__enumIndex__];
@@ -12690,9 +12691,9 @@ function gml_value_print_rec(l_v,l_z){
 	} else if(is_string(l_v)){
 		return "\""+l_v+"\"";
 	} else if(is_array(l_v)){
-		l_r=ds_map_find_value(gml_value_print_refs,l_v);
+		l_r=gml_value_print_refs[?l_v];
 		if(l_r!=undefined)return l_r;
-		ds_map_set(gml_value_print_refs,l_v,"@"+string(l_id));
+		gml_value_print_refs[?l_v]="@"+string(l_id);
 		l_n=array_length(l_v);
 		if(l_n>0){
 			if(++l_z<=8){
@@ -14280,7 +14281,7 @@ function vm_group_jump_on_switch(l_th,l_act){
 	var l_val=l_st[l_i];
 	l_st[@l_i]=0;
 	l_st[@0]=l_i-1;
-	if(ds_map_exists(l_jt,l_val))l_q.h_offset=ds_map_find_value(l_jt,l_val); else l_q.h_offset=l_p;
+	if(ds_map_exists(l_jt,l_val))l_q.h_offset=l_jt[?l_val]; else l_q.h_offset=l_p;
 	return gml_thread_proc_result_sync_pos;
 }
 

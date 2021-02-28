@@ -68,7 +68,7 @@ if(shouldSortByScore) {
 
 for(var i = 0; i < numPlayers; i++) {
 	var cardOriginY = anchorY + i*scorecardHeight;
-	//draw_sprite(sprScorecard, 0, anchorX, cardOriginY);
+	draw_sprite(sprScorecard, 0, anchorX, cardOriginY);
 	draw_sprite_ext(sortedPlayerCharacters[i], 0, anchorX + 68, cardOriginY+ 56, 2, 2, 0, c_white, 1.0);
 	scribble("[fa_left][fa_top][c_white]P" + string(sortedPlayerNumbers[i])).draw(anchorX, cardOriginY);
 	scribble("[fa_right][fa_top][c_white]" + string(sortedPlayerScores[i])).draw(anchorX+scorecardWidth - 6, cardOriginY);
