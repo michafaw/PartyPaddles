@@ -29,15 +29,26 @@ controllerNumber = 1; // 0 is AI, 1 is player 1 (left/right), 2 is player 2 (a/d
 shouldDrawPath = true;
 pathColor = scribble_rgb_to_bgr(0x222222);
 */
+
+
+// Note to Scott and future Micha:
+//   "Variable Definitions" are applied before the Create event runs (GMS docs are not clear about it)
+// Debug overrides
 //bodyWidth = 50
 //bodyHeight = 50
 //bodyAngle = 90;
 //bodyAngleMatchesMovement = false;
 //movementAngle = 30;
 
-//characters = [sprCharacter1, sprCharacter2, sprCharacter3, sprCharacter4];
+var availableCharacters = [sprCharacter1, sprCharacter2, sprCharacter3, sprCharacter4, sprCharacter5, sprCharacter6, sprCharacter7, sprCharacter8];
 for(var i = 0; i < 4; i++) {
-	characters[i] = choose(sprCharacter1, sprCharacter2, sprCharacter3, sprCharacter4, sprCharacter5, sprCharacter6, sprCharacter7, sprCharacter8);
+	// With a little bit of "where is this in the array" we could make the 
+	//   first character be the player's character (as party leader) -- Future TODO
+	
+	var numChoices = array_length(availableCharacters);
+	var choice = irandom(numChoices - 1); // irandom is from 0 to N, including N
+	characters[i] = availableCharacters[choice];
+	array_delete(availableCharacters, choice, 1);
 }
 
 
