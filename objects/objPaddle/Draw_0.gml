@@ -49,7 +49,7 @@ draw_sprite_ext(bodySprite, paddleImageIndex, x, y, paddleXScale, paddleYScale, 
 draw_sprite_ext(leftEndSprite, paddleImageIndex, paddleLeftEndX, paddleLeftEndY, paddleXScale, paddleYScale, bodyAngle, blendColor, blendColorAlpha);
 draw_sprite_ext(rightEndSprite, paddleImageIndex, paddleRightEndX, paddleRightEndY, paddleXScale, paddleYScale, bodyAngle, blendColor, blendColorAlpha);
 
-
+/*
 // Draw some prototype characters
 var charVectorX = bodyVectorX/6;
 var charVectorY = bodyVectorY/6;
@@ -61,3 +61,4 @@ draw_sprite(characters[0], 0, x - charVectorX*3, y - charVectorY*3);
 draw_sprite(characters[1], 0, x - charVectorX*1, y - charVectorY*1);
 draw_sprite(characters[2], 0, x + charVectorX*1, y + charVectorY*1);
 draw_sprite(characters[3], 0, x + charVectorX*3, y + charVectorY*3);
+*/
