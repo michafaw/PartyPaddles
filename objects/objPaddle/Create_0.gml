@@ -3,7 +3,6 @@
 // if (live_call(argument0, argument1)) return live_result; // For 2 arg scripts
 if (live_call()) return live_result;
 
-// Micha Change
 
 // The variables in the folowing section are defined in "Variable Definitions"
 
@@ -30,7 +29,6 @@ controllerNumber = 1; // 0 is AI, 1 is player 1 (left/right), 2 is player 2 (a/d
 shouldDrawPath = true;
 pathColor = scribble_rgb_to_bgr(0x222222);
 */
-// Micha Change 2
 //bodyWidth = 50
 //bodyHeight = 50
 //bodyAngle = 90;
