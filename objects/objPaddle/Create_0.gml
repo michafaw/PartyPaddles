@@ -37,10 +37,6 @@ pathColor = scribble_rgb_to_bgr(0x222222);
 
 //characters = [sprCharacter1, sprCharacter2, sprCharacter3, sprCharacter4];
 
-//skh
-bodyWidth = 96
-bodyHeight = 36
-
 for(var i = 0; i < 4; i++) {
 	characters[i] = choose(sprCharacter1, sprCharacter2, sprCharacter3, sprCharacter4, sprCharacter5, sprCharacter6, sprCharacter7, sprCharacter8);
 }
