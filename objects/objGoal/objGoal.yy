@@ -22,8 +22,8 @@
   "physicsShapePoints": [
     {"x":0.0,"y":0.0,},
     {"x":100.0,"y":0.0,},
-    {"x":100.0,"y":8.0,},
-    {"x":0.0,"y":8.0,},
+    {"x":100.0,"y":4.0,},
+    {"x":0.0,"y":4.0,},
   ],
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objBallParent","path":"objects/objBallParent/objBallParent.yy",},"parent":{"name":"objGoal","path":"objects/objGoal/objGoal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
