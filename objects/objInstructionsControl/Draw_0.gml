@@ -15,4 +15,4 @@ var _text = scribble("[fa_center][fa_middle][#ffffcc]Instructions"
 //draw_rectangle(_bbox.left, _bbox.top, _bbox.right, _bbox.bottom, true);
 _text.draw(room_width/2, room_height/2);
 
-scribble("[fa_right][fa_bottom][#ffffcc][scale,.75][wave]A game by Scott Hiroshige & Micha Faw[/wave]").draw(room_width-10, room_height-10);
+scribble("[fa_center][fa_bottom][#ffffcc][scale,.75][wave]A game by Scott Hiroshige & Micha Faw[/wave]").draw(room_width/2, room_height-10);

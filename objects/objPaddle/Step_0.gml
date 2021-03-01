@@ -57,6 +57,8 @@ if(point_distance(homeX, homeY, xx, yy) > movementRange)
 	canMove = false;	
 
 if(canMove) {
-	x = xx;
-	y = yy;
+	phy_position_x = xx;
+	phy_position_y = yy;
+	//x = xx;
+	//y = yy;
 }

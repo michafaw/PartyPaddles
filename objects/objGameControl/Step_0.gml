@@ -4,6 +4,13 @@
 if (live_call()) return live_result;
 
 
+if(keyboard_check_pressed(vk_space)) {
+	if(room != roomArenaPhysics)
+		room_goto(roomArenaPhysics);
+	else
+		room_restart();
+}
+
 if(keyboard_check_pressed(vk_escape)) {
 	if(keyboard_check(vk_shift))
 		room_restart()
