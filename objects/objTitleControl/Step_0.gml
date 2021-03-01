@@ -3,5 +3,7 @@
 
 if (live_call()) return live_result;
 
-if(keyboard_check_pressed(vk_anykey))
+if(keyboard_check_pressed(vk_anykey)) {
+	audio_play_sound(Retro_Success_Melody_02___choir_soprano, 10, false);
 	room_goto(roomArena1);
+}
