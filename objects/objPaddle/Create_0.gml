@@ -70,7 +70,7 @@ if(bodyAngleMatchesMovement)
 	
  // Number of frames a paddle has to wait to reverse direction
 // -1 = left, 0 is nothing, 1 is right
-var numSkidFrames = 2;
+var numSkidFrames = 10;
 lastAIMove = array_create(numSkidFrames, 0); 
 
 // Convert this to call object/struct's variables or methods, or a script

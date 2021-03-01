@@ -37,7 +37,10 @@ var yy = y;
 
 var pressRight = false;
 var pressLeft = false;
-if(controllerNumber != 0) {
+
+var isAIPlayer = controllerNumber == 0;
+
+if(!isAIPlayer) {
 	// Keyboard player
 	pressRight = keyboard_check(rightKey);
 	pressLeft = keyboard_check(leftKey);
@@ -56,13 +59,13 @@ if(controllerNumber != 0) {
 			pressLeft = true;
 		}
 		
-		/*
+		
 		// Slow down the jitters a little bit
 		var didMoveRight = false;
 		var didMoveLeft = false;
 		var lastMoveCount = array_length(lastAIMove);
 		for(var i = 0; i < lastMoveCount; i++) {
-			if(lastAIMove[i]	== 1)
+			if(lastAIMove[i] == 1)
 				didMoveRight = true;
 			else if(lastAIMove[i] == -1)
 				didMoveLeft = true;
@@ -71,17 +74,8 @@ if(controllerNumber != 0) {
 			pressRight = false;
 		if(pressLeft && didMoveRight)
 			pressLeft = false;
-		*/
+		
 	} 
-	/*
-	array_delete(lastAIMove, 0, 1);
-	if(pressRight)
-		array_push(lastAIMove, 1);
-	if(pressLeft)
-		array_push(lastAIMove, -1);
-	else
-		array_push(lastAIMove, 0);
-	*/
 }
 
 if(pressRight) {
@@ -89,7 +83,7 @@ if(pressRight) {
 	yy += movementVectorY;
 	isMoving = true;
 	currMovementDirection = movementAngle;
-} else if(pressLeft) {
+}else if(pressLeft) {
 	xx -= movementVectorX;
 	yy -= movementVectorY;
 	isMoving = true;
@@ -110,4 +104,16 @@ if(canMove) {
 	phy_position_y = yy;
 	//x = xx;
 	//y = yy;
+}
+
+if(isAIPlayer) {
+	// Update the de-jitter data for the AI player
+	
+	array_delete(lastAIMove, 0, 1);
+	if(pressRight && canMove)
+		array_push(lastAIMove, 1);
+	else if(pressLeft && canMove)
+		array_push(lastAIMove, -1);
+	else
+		array_push(lastAIMove, 0);
 }
