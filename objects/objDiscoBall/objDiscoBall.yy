@@ -1,13 +1,16 @@
 {
   "spriteId": {
-    "name": "sprScorecard",
-    "path": "sprites/sprScorecard/sprScorecard.yy",
+    "name": "DiscoBall3",
+    "path": "sprites/DiscoBall3/DiscoBall3.yy",
   },
   "solid": false,
   "visible": true,
   "spriteMaskId": null,
   "persistent": false,
-  "parentObjectId": null,
+  "parentObjectId": {
+    "name": "objBallParent",
+    "path": "objects/objBallParent/objBallParent.yy",
+  },
   "physicsObject": false,
   "physicsSensor": false,
   "physicsShape": 1,
@@ -20,10 +23,7 @@
   "physicsStartAwake": true,
   "physicsKinematic": false,
   "physicsShapePoints": [],
-  "eventList": [
-    {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"objScoreboard","path":"objects/objScoreboard/objScoreboard.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"objScoreboard","path":"objects/objScoreboard/objScoreboard.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-  ],
+  "eventList": [],
   "properties": [],
   "overriddenProperties": [],
   "parent": {
@@ -31,7 +31,7 @@
     "path": "folders/Objects/Game Room.yy",
   },
   "resourceVersion": "1.0",
-  "name": "objScoreboard",
+  "name": "objDiscoBall",
   "tags": [],
   "resourceType": "GMObject",
 }

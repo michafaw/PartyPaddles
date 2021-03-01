@@ -39,9 +39,15 @@ var yy = y;
 if(keyboard_check(rightKey)) {
 	xx += movementVectorX;
 	yy += movementVectorY;
+	isMoving = true;
+	currMovementDirection = movementAngle;
 } else if(keyboard_check(leftKey)) {
 	xx -= movementVectorX;
 	yy -= movementVectorY;
+	isMoving = true;
+	currMovementDirection = movementAngle + 180;
+} else {
+	isMoving = false; // If we move isMoving below to check aginst canMove, it'll prevent them from "walking against the wall"
 }
 
 
