@@ -22,13 +22,14 @@ if(canExitGameOver) {
 }
 
 
-
+/*
 // Debug code to add score to a particular player
 for (var i = 1; i <= 8; i++) {
 	if(keyboard_check_pressed(ord(string(i)))) {
 		global.playerScores[i-1] += 1;
 	}
 }
+*/
 
 
 // Check for a winner
@@ -56,9 +57,7 @@ if(!global.isGameOver) {
 		with(objBallSpawner) {
 			instance_destroy();	
 		}
-		
 	}
-	
 }
 
 
