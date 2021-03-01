@@ -13,8 +13,8 @@
   "soundFile": "Short_Action_Game_Loop__1.wav",
   "duration": 39.205883,
   "parent": {
-    "name": "PartyPaddles",
-    "path": "PartyPaddles.yyp",
+    "name": "Scott Working",
+    "path": "folders/Scott Working.yy",
   },
   "resourceVersion": "1.0",
   "name": "Short_Action_Game_Loop__1",
