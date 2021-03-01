@@ -18,4 +18,7 @@ function scrInitialize() {
 	
 	// Initialize the player config so it can be used by objects later on
 	scrSetPlayerGlobals();
+	
+	// Initialize gameplay config
+	scrSetGameplayGlobals();
 }
