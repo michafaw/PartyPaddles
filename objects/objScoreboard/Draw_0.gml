@@ -79,7 +79,7 @@ for(var i = 0; i < numPlayers; i++) {
 	// Player sprite (non-animated)
 	draw_sprite_ext(sortedPlayerCharacters[i], 0, anchorX + 74, cardOriginY+ 56, 2, 2, 0, c_white, 1.0);
 	// Player name
-	scribble("[fa_left][fa_top]" + playerColorInline + sortedPlayerNumbers[i]).draw(anchorX, cardOriginY);
+	scribble("[fa_left][fa_top]" + playerColorInline + sortedPlayerNumbers[i]).draw(anchorX+8, cardOriginY + 8);
 	// Player score
-	scribble("[fa_right][fa_top]" + playerColorInline + string(sortedPlayerScores[i])).draw(anchorX+scorecardWidth - 6, cardOriginY);
+	scribble("[fa_right][fa_top]" + playerColorInline + string(sortedPlayerScores[i])).draw(anchorX+scorecardWidth - 8, cardOriginY + 8);
 }
