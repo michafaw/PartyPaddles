@@ -23,7 +23,7 @@ function scrInitialize() {
 	// Scribble set up
 	// https://github.com/JujuAdams/scribble/wiki/Text-Formatting
 	scribble_font_add_all();
-	scribble_font_set_default("fntAvenirBlack30");
+	scribble_font_set_default("fntMatchupPro40");
 	
 	// Initialize the player config so it can be used by objects later on
 	scrSetPlayerGlobals();

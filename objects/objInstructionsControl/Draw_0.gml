@@ -4,13 +4,13 @@
 if (live_call()) return live_result;
 
 var _text = scribble("[fa_center][fa_middle][#ffffcc]Instructions"
-	+ "\n[scale,.5]It's like that first famous paddle game"
+	+ "[scale,.75]\n\nIt's like that first famous paddle game"
 	+ "\nbut multiplayer free-for-all!"
-	+ "\nMove your paddle(s) left/right with the keys specified below.[/color]"
-	+ "\n[#0000ff][bold]Player 1 plays the blue paddle(s) with left/right arrows keys.[/color]"
-	+ "\n[#00ffff]Player 2 plays the cyan paddle(s) with [[A]/[[D].[/color]"
+	+ "\n[#0000ff][bold]Player 1 (Blue): left/right arrow keys[/color]"
+	+ "\n[#00ffff]Player 2 (Cyan): [[A]/[[D] keys[/color]"
 	+ "\n[#ffffcc]First to 11 wins!"
-	+ "\n\n[scale,.75][rainbow]Press any key to play[/rainbow]");
+	+ "\n\n[rainbow]Press any key to play[/rainbow]"
+	+ "\n");
 //var _bbox = _text.get_bbox(room_width/2, room_height/2, 10, 10, 10, 5);
 //draw_rectangle(_bbox.left, _bbox.top, _bbox.right, _bbox.bottom, true);
 _text.draw(room_width/2, room_height/2);
