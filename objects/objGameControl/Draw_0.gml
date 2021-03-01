@@ -5,8 +5,17 @@ if (live_call()) return live_result;
 
 //show_debug_message("objGameControl.Draw: " + string(instance_id) + ", " + string(instance_number(objGameControl)));
 
+var arenaCenterX = 232+8;
+
 if(shouldShowStartPhrase)
-	scribble("[fa_center][fa_middle][c_white][wave]Ready?[/wave]").draw(232+8, room_height/2);
+	scribble("[fa_center][fa_middle][c_white][wave]Ready?[/wave]").draw(arenaCenterX, room_height/2);
+
+if(shouldShowWinnerBanner) {	
+	scribble("[fa_center][fa_middle][c_white][wave][rainbow]" + winnerName + " Wins![/rainbow][wave]").draw(arenaCenterX, room_height/2);
+}
+
+if(canExitGameOver)
+	scribble("[fa_center][fa_center][#ffffcc][scale,.75][wave]Press any key[/wave]").draw(arenaCenterX, room_height/2 + 40);
 
 /*
 var wallThickness = 8

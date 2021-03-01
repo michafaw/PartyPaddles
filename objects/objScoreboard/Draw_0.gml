@@ -73,13 +73,20 @@ for(var i = 0; i < numPlayers; i++) {
 	var cardOriginY = anchorY + i*scorecardHeight;
 	var playerColor = sortedPlayerColors[i];
 	var playerColorInline = "[d#" + string(playerColor) +  "]";
+	var playerColorInlineEnd = "";
 	
 	// Scorecard background
 	//draw_sprite(sprScorecard, 0, anchorX, cardOriginY);
 	// Player sprite (non-animated)
 	draw_sprite_ext(sortedPlayerCharacters[i], 0, anchorX + 74, cardOriginY+ 56, 2, 2, 0, c_white, 1.0);
 	// Player name
-	scribble("[fa_left][fa_top]" + playerColorInline + sortedPlayerNumbers[i]).draw(anchorX+8, cardOriginY + 8);
+	scribble("[fa_left][fa_top]" + playerColorInline + sortedPlayerNumbers[i] + playerColorInlineEnd).draw(anchorX+8, cardOriginY + 8);
+	
+	if(sortedPlayerScores[i] >= global.scoreToWin) {
+		playerColorInline = playerColorInline + "[wave][rainbow]"
+		playerColorInlineEnd = "[/rainbow][/wave]" + playerColorInlineEnd;
+	}
 	// Player score
-	scribble("[fa_right][fa_top]" + playerColorInline + string(sortedPlayerScores[i])).draw(anchorX+scorecardWidth - 8, cardOriginY + 8);
+	scribble("[fa_right][fa_top]" + playerColorInline + string(sortedPlayerScores[i]) + playerColorInlineEnd).draw(anchorX+scorecardWidth - 8, cardOriginY + 8);
+
 }

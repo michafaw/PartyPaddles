@@ -5,6 +5,8 @@
 function scrSetGameplayGlobals(){
 	if (live_call()) return live_result;
 	
+	global.scoreToWin = 11;
+	
 	global.gameStartDelay = 1*room_speed;
 	global.maxBalls = 10;
 	global.minDelayToCheckForNewBalls = 1*room_speed;
@@ -12,4 +14,5 @@ function scrSetGameplayGlobals(){
 	global.minBallStartSpeed = 15; // Impulse values (not pixels per frame!)
 	global.maxBallStartSpeed = 25;
 	
+	global.isGameOver = false
 }

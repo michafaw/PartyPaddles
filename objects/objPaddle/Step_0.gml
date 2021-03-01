@@ -104,6 +104,7 @@ var canMove = true;
 if(point_distance(homeX, homeY, xx, yy) > movementRange)
 	canMove = false;	
 
+//if(canMove && !global.isGameOver) { // Version to disable the paddles on game over
 if(canMove) {
 	phy_position_x = xx;
 	phy_position_y = yy;
