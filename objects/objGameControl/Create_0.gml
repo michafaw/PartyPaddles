@@ -3,6 +3,10 @@
 // if (live_call(argument0, argument1)) return live_result; // For 2 arg scripts
 if (live_call()) return live_result;
 
+audio_stop_sound(Short_Action_Game_Loop__1);
+audio_stop_sound(Short_Dramatic_Pulsing_Loop__1);
+
+audio_play_sound(choose(Short_Action_Game_Loop__1, Short_Dramatic_Pulsing_Loop__1), 10, true);
 
 shouldShowStartPhrase = true;
 startPhraseDisplayTime = 1*room_speed;
