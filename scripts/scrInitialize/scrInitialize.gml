@@ -6,8 +6,17 @@ function scrInitialize() {
 	/// GMLive info here: https://yal.cc/r/17/gmlive/
 	if (live_call()) return live_result;
 	
+	
+	/////////////////
+	//
+	//  To disable GMLive, uncomment the next line before building
+	//#macro live_enabled 0
+	//
+	/////////////////
+	
+	
 	global.reduceGraphics = false;
-	//if(global.reduceGraphics) // Restore this line when done debugging -- Micha TODO
+	if(global.reduceGraphics)
 		show_debug_overlay(true);
 		
 	
@@ -21,4 +30,6 @@ function scrInitialize() {
 	
 	// Initialize gameplay config
 	scrSetGameplayGlobals();
+	
+	
 }

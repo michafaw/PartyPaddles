@@ -51,10 +51,6 @@
             {"propertyId":{"name":"movementAngle","path":"objects/objPaddle/objPaddle.yy",},"objectId":{"name":"objPaddle","path":"objects/objPaddle/objPaddle.yy",},"value":"-90","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
             {"propertyId":{"name":"controllerNumber","path":"objects/objPaddle/objPaddle.yy",},"objectId":{"name":"objPaddle","path":"objects/objPaddle/objPaddle.yy",},"value":"7","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
           ],"isDnd":false,"objectId":{"name":"objPaddle","path":"objects/objPaddle/objPaddle.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":-89.92576,"scaleX":1.0,"scaleY":1.0,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":37.0,"y":327.0155,"resourceVersion":"1.0","name":"inst_92EA646","tags":[],"resourceType":"GMRInstance",},
-        {"properties":[
-            {"propertyId":{"name":"playerNumber","path":"objects/objPaddle/objPaddle.yy",},"objectId":{"name":"objPaddle","path":"objects/objPaddle/objPaddle.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-            {"propertyId":{"name":"controllerNumber","path":"objects/objPaddle/objPaddle.yy",},"objectId":{"name":"objPaddle","path":"objects/objPaddle/objPaddle.yy",},"value":"1","resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMOverriddenProperty",},
-          ],"isDnd":false,"objectId":{"name":"objPaddle","path":"objects/objPaddle/objPaddle.yy",},"inheritCode":false,"hasCreationCode":false,"colour":4294967295,"rotation":26.8621063,"scaleX":1.0,"scaleY":1.04166663,"imageIndex":0,"imageSpeed":1.0,"inheritedItemId":null,"frozen":false,"ignore":false,"inheritItemSettings":false,"x":243.499954,"y":139.993958,"resourceVersion":"1.0","name":"inst_4FE6EB3E","tags":[],"resourceType":"GMRInstance",},
       ],"visible":true,"depth":100,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Instances","tags":[],"resourceType":"GMRInstanceLayer",},
     {"spriteId":{"name":"sprDiscoArena","path":"sprites/sprDiscoArena/sprDiscoArena.yy",},"colour":4294967295,"x":0,"y":0,"htiled":false,"vtiled":false,"hspeed":0.0,"vspeed":0.0,"stretch":false,"animationFPS":30.0,"animationSpeedType":0,"userdefinedAnimFPS":false,"visible":true,"depth":200,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":false,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Background","tags":[],"resourceType":"GMRBackgroundLayer",},
     {"instances":[],"visible":true,"depth":300,"userdefinedDepth":false,"inheritLayerDepth":false,"inheritLayerSettings":true,"gridX":32,"gridY":32,"layers":[],"hierarchyFrozen":false,"resourceVersion":"1.0","name":"Inherited_Instances_DO_NOT_MODIFY","tags":[],"resourceType":"GMRInstanceLayer",},
@@ -78,7 +74,6 @@
     {"name":"inst_4E2C0B2B","path":"rooms/roomArenaParentSettings/roomArenaParentSettings.yy",},
     {"name":"inst_2FCB3E9D","path":"rooms/roomArenaParentSettings/roomArenaParentSettings.yy",},
     {"name":"inst_92EA646","path":"rooms/roomArenaParentSettings/roomArenaParentSettings.yy",},
-    {"name":"inst_4FE6EB3E","path":"rooms/roomArenaParentSettings/roomArenaParentSettings.yy",},
   ],
   "inheritCreationOrder": false,
   "sequenceId": null,
