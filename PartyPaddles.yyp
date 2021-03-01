@@ -39,6 +39,7 @@
     {"id":{"name":"scribble_font_add_from_sprite","path":"scripts/scribble_font_add_from_sprite/scribble_font_add_from_sprite.yy",},"order":2,},
     {"id":{"name":"scrSetPlayerGlobals","path":"scripts/scrSetPlayerGlobals/scrSetPlayerGlobals.yy",},"order":1,},
     {"id":{"name":"scribble_typewriter_add_character_delay","path":"scripts/scribble_typewriter_add_character_delay/scribble_typewriter_add_character_delay.yy",},"order":2,},
+    {"id":{"name":"DiscoLightSpinning","path":"objects/DiscoLightSpinning/DiscoLightSpinning.yy",},"order":12,},
     {"id":{"name":"sprCharacter8","path":"sprites/sprCharacter8/sprCharacter8.yy",},"order":6,},
     {"id":{"name":"FakePaddleFacingLeft_Magenta","path":"sprites/FakePaddleFacingLeft_Magenta/FakePaddleFacingLeft_Magenta.yy",},"order":1,},
     {"id":{"name":"fntMatchupPro40","path":"fonts/fntMatchupPro40/fntMatchupPro40.yy",},"order":11,},
