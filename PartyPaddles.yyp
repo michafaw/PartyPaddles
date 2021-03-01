@@ -81,6 +81,7 @@
     {"id":{"name":"scribble_glyph_set","path":"scripts/scribble_glyph_set/scribble_glyph_set.yy",},"order":6,},
     {"id":{"name":"Text_Formatting","path":"notes/Text_Formatting/Text_Formatting.yy",},"order":10,},
     {"id":{"name":"objBallParent","path":"objects/objBallParent/objBallParent.yy",},"order":3,},
+    {"id":{"name":"DiscoLightMoving","path":"objects/DiscoLightMoving/DiscoLightMoving.yy",},"order":13,},
     {"id":{"name":"PartyPaddles_DiscoFloor2xAll_640x480","path":"sprites/PartyPaddles_DiscoFloor2xAll_640x480/PartyPaddles_DiscoFloor2xAll_640x480.yy",},"order":2,},
     {"id":{"name":"sprPaddleRightEnd","path":"sprites/sprPaddleRightEnd/sprPaddleRightEnd.yy",},"order":4,},
     {"id":{"name":"Retro_Success_Melody_02___choir_soprano","path":"sounds/Retro_Success_Melody_02___choir_soprano/Retro_Success_Melody_02___choir_soprano.yy",},"order":5,},
