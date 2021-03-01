@@ -8,7 +8,7 @@ function scrInitialize() {
 	
 	global.reduceGraphics = false;
 	//if(global.reduceGraphics) // Restore this line when done debugging -- Micha TODO
-		show_debug_overlay(true);
+		show_debug_overlay(false);
 		
 	
 	// Scribble set up
