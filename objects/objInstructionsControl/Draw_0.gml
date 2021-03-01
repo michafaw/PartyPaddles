@@ -6,8 +6,8 @@ if (live_call()) return live_result;
 var _text = scribble("[fa_center][fa_middle][#ffffcc]Instructions"
 	+ "[scale,.75]\n\nIt's like that first famous paddle game"
 	+ "\nbut multiplayer free-for-all!"
-	+ "\n[#0000ff][bold]Player 1 (Blue): left/right arrow keys[/color]"
-	+ "\n[#00ffff]Player 2 (Cyan): [[A]/[[D] keys[/color]"
+	+ "\n[#ff00ff][bold]Player 1 (Pink): left/right arrow keys[/color]"
+	+ "\n[#00ffff]Player 2 (Aqua): [[A]/[[D] keys[/color]"
 	+ "\n[#ffffcc]First to 11 wins!"
 	+ "\n\n[rainbow]Press any key to play[/rainbow]"
 	+ "\n");
