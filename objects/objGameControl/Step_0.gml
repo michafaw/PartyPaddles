@@ -45,6 +45,7 @@ if(!global.isGameOver) {
 		}
 	}
 	if(highScore >= global.scoreToWin) {
+		audio_play_sound(game_over, 50, false);
 		winnerName = global.playerNumbers[highIndex];
 		global.isGameOver = true;
 		shouldShowWinnerBanner = true;
