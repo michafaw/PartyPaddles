@@ -78,6 +78,8 @@
     {"id":{"name":"objInstructionsControl","path":"objects/objInstructionsControl/objInstructionsControl.yy",},"order":0,},
     {"id":{"name":"sprCharacter1","path":"sprites/sprCharacter1/sprCharacter1.yy",},"order":1,},
     {"id":{"name":"__scribble_gc_collect","path":"scripts/__scribble_gc_collect/__scribble_gc_collect.yy",},"order":8,},
+    {"id":{"name":"Short_Dramatic_Pulsing_Loop__1","path":"sounds/Short_Dramatic_Pulsing_Loop__1/Short_Dramatic_Pulsing_Loop__1.yy",},"order":18,},
+    {"id":{"name":"Short_Action_Game_Loop__1","path":"sounds/Short_Action_Game_Loop__1/Short_Action_Game_Loop__1.yy",},"order":17,},
     {"id":{"name":"MSDF_Guide","path":"notes/MSDF_Guide/MSDF_Guide.yy",},"order":7,},
     {"id":{"name":"roomArenaParentSettings","path":"rooms/roomArenaParentSettings/roomArenaParentSettings.yy",},"order":0,},
     {"id":{"name":"sprCharacter4","path":"sprites/sprCharacter4/sprCharacter4.yy",},"order":3,},
