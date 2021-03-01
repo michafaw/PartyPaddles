@@ -35,13 +35,61 @@ movementVectorY = lengthdir_y(movementSpeed, movementAngle)
 var xx = x;
 var yy = y;
 
+var pressRight = false;
+var pressLeft = false;
+if(controllerNumber != 0) {
+	// Keyboard player
+	pressRight = keyboard_check(rightKey);
+	pressLeft = keyboard_check(leftKey);
+} else {
+	// AI player	
+	var ball = instance_nearest(x,y, objBallParent);
+	
+	if(ball != noone) {
+		
+		var distanceNow = point_distance(x, y, ball.x, ball.y)
+		var distanceRight = point_distance(x+movementVectorX, y+movementVectorY, ball.x, ball.y)
+		
+		if(distanceRight < distanceNow) {
+			pressRight = true;	
+		} else {
+			pressLeft = true;
+		}
+		
+		/*
+		// Slow down the jitters a little bit
+		var didMoveRight = false;
+		var didMoveLeft = false;
+		var lastMoveCount = array_length(lastAIMove);
+		for(var i = 0; i < lastMoveCount; i++) {
+			if(lastAIMove[i]	== 1)
+				didMoveRight = true;
+			else if(lastAIMove[i] == -1)
+				didMoveLeft = true;
+		}
+		if(pressRight && didMoveLeft)
+			pressRight = false;
+		if(pressLeft && didMoveRight)
+			pressLeft = false;
+		*/
+	} 
+	/*
+	array_delete(lastAIMove, 0, 1);
+	if(pressRight)
+		array_push(lastAIMove, 1);
+	if(pressLeft)
+		array_push(lastAIMove, -1);
+	else
+		array_push(lastAIMove, 0);
+	*/
+}
 
-if(keyboard_check(rightKey)) {
+if(pressRight) {
 	xx += movementVectorX;
 	yy += movementVectorY;
 	isMoving = true;
 	currMovementDirection = movementAngle;
-} else if(keyboard_check(leftKey)) {
+} else if(pressLeft) {
 	xx -= movementVectorX;
 	yy -= movementVectorY;
 	isMoving = true;

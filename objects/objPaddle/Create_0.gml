@@ -67,14 +67,25 @@ needsVectorRecalculation = true;
 // Override bodyAngle with the movementAngle if requested
 if(bodyAngleMatchesMovement)
 	bodyAngle = movementAngle;
+	
+ // Number of frames a paddle has to wait to reverse direction
+// -1 = left, 0 is nothing, 1 is right
+var numSkidFrames = 2;
+lastAIMove = array_create(numSkidFrames, 0); 
 
 // Convert this to call object/struct's variables or methods, or a script
-if(controllerNumber == 1 || controllerNumber%2 == 1) {
+if(controllerNumber == 1) {
 	rightKey = vk_right;
 	leftKey = vk_left;
-} else if(controllerNumber == 2 || controllerNumber%2 == 0) {
+} else if(controllerNumber == 2) {
 	rightKey = ord("D");
 	leftKey = ord("A");
+} else if(controllerNumber == 3) {
+	rightKey = ord("O");
+	leftKey = ord("P");
+} else if(controllerNumber == 4) {
+	rightKey = ord("H");
+	leftKey = ord("K");
 } else {
 	// AI player, but give it a key anyway for now
 	rightKey = vk_control;
