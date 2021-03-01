@@ -14,6 +14,7 @@
     {"id":{"name":"objInitializeControl","path":"objects/objInitializeControl/objInitializeControl.yy",},"order":0,},
     {"id":{"name":"__scribble_class_line","path":"scripts/__scribble_class_line/__scribble_class_line.yy",},"order":2,},
     {"id":{"name":"objBallSpawner","path":"objects/objBallSpawner/objBallSpawner.yy",},"order":4,},
+    {"id":{"name":"Retro_PickUp_18","path":"sounds/Retro_PickUp_18/Retro_PickUp_18.yy",},"order":16,},
     {"id":{"name":"sprWall","path":"sprites/sprWall/sprWall.yy",},"order":2,},
     {"id":{"name":"scribble_font_bake_outline","path":"scripts/scribble_font_bake_outline/scribble_font_bake_outline.yy",},"order":0,},
     {"id":{"name":"__scribble_init","path":"scripts/__scribble_init/__scribble_init.yy",},"order":10,},

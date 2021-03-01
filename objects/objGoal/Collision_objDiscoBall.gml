@@ -5,5 +5,6 @@ if (live_call()) return live_result;
 
 show_debug_message("Collision with ball!");
 
+audio_play_sound(Retro_PickUp_18, 40, false);
 global.playerScores[playerNumber-1] += 1;
 instance_destroy(other.id);
