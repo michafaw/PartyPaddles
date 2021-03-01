@@ -1,0 +1,6 @@
+/// @description Insert description here
+// if (live_call()) return live_result;
+// if (live_call(argument0, argument1)) return live_result; // For 2 arg scripts
+if (live_call()) return live_result;
+
+draw_sprite_ext(sprite_index, image_index, x, y, image_xscale, image_yscale, image_angle, blendColor, blendColorAlpha);

@@ -9,7 +9,7 @@ function scrSetGameplayGlobals(){
 	global.maxBalls = 10;
 	global.minDelayToCheckForNewBalls = 1*room_speed;
 	global.maxDelayToCheckForNewBalls = 3*room_speed;
-	global.minBallStartSpeed = 1;
-	global.maxBallStartSpeed = 3;
+	global.minBallStartSpeed = 15; // Impulse values (not pixels per frame!)
+	global.maxBallStartSpeed = 25;
 	
 }
