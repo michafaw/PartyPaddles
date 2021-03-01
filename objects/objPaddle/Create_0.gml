@@ -57,6 +57,11 @@ for(var i = 0; i < 4; i++) {
 homeX = x;
 homeY = y;
 
+isMoving = false;
+currMovementDirection = 0; // Used to help face the sprites based on the direction of the paddle's movement
+
+blendColor = global.playerColors[playerNumber-1];
+
 needsVectorRecalculation = true;
 
 // Override bodyAngle with the movementAngle if requested
@@ -64,12 +69,12 @@ if(bodyAngleMatchesMovement)
 	bodyAngle = movementAngle;
 
 // Convert this to call object/struct's variables or methods, or a script
-if(controllerNumber == 1) {
+if(controllerNumber == 1 || controllerNumber%2 == 1) {
 	rightKey = vk_right;
 	leftKey = vk_left;
-} else if(controllerNumber == 2) {
-	rightKey = ord("A");
-	leftKey = ord("D");
+} else if(controllerNumber == 2 || controllerNumber%2 == 0) {
+	rightKey = ord("D");
+	leftKey = ord("A");
 } else {
 	// AI player, but give it a key anyway for now
 	rightKey = vk_control;

@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "sprPaddleBaton",
-    "path": "sprites/sprPaddleBaton/sprPaddleBaton.yy",
+    "name": "sprPaddlePlaceholder",
+    "path": "sprites/sprPaddlePlaceholder/sprPaddlePlaceholder.yy",
   },
   "solid": false,
   "visible": true,
@@ -30,7 +30,7 @@
     {"varType":1,"value":"1","rangeEnabled":true,"rangeMin":1.0,"rangeMax":8.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"playerNumber","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"0","rangeEnabled":true,"rangeMin":-90.0,"rangeMax":90.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"movementAngle","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"3.5","rangeEnabled":true,"rangeMin":0.1,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"movementSpeed","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":1,"value":"60","rangeEnabled":true,"rangeMin":0.0,"rangeMax":250.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"movementRange","tags":[],"resourceType":"GMObjectProperty",},
+    {"varType":1,"value":"48","rangeEnabled":true,"rangeMin":0.0,"rangeMax":250.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"movementRange","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":3,"value":"True","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bodyAngleMatchesMovement","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":1,"value":"0","rangeEnabled":true,"rangeMin":-90.0,"rangeMax":90.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bodyAngle","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"64","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"bodyWidth","tags":[],"resourceType":"GMObjectProperty",},
@@ -39,7 +39,6 @@
     {"varType":5,"value":"sprPaddleLeftEnd","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"leftEndSprite","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":5,"value":"sprPaddleRightEnd","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"rightEndSprite","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":3,"value":"True","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"maintainEndSpriteAspectRatio","tags":[],"resourceType":"GMObjectProperty",},
-    {"varType":7,"value":"c_white","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"blendColor","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":0,"value":"1","rangeEnabled":true,"rangeMin":0.0,"rangeMax":1.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"blendColorAlpha","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":3,"value":"True","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"shouldDrawPath","tags":[],"resourceType":"GMObjectProperty",},
     {"varType":7,"value":"$FF222222","rangeEnabled":false,"rangeMin":0.0,"rangeMax":10.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"pathColor","tags":[],"resourceType":"GMObjectProperty",},

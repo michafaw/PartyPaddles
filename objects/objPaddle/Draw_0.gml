@@ -65,13 +65,29 @@ draw_sprite_ext(rightEndSprite, paddleImageIndex, paddleRightEndX, paddleRightEn
 
 
 // Draw some prototype characters
+var leftFacing = 1;
+var rightFacing = -1;
+var facing = leftFacing;
+var shouldFaceOnMove = false; // Enable this for facing the direction of movement, but it's not 100% working at the moment
+if(isMoving && shouldFaceOnMove) {
+	var normalizedAngle = (currMovementDirection+360)%360;
+	if(normalizedAngle <= 90 || normalizedAngle >= 270)
+		facing = rightFacing;
+} else {
+	if(bodyAngle < 0)
+		facing = rightFacing;
+}
 var charVectorX = bodyVectorX/6;
 var charVectorY = bodyVectorY/6;
 //draw_sprite(sprCharacter1, 0, paddleLeftEndX, paddleLeftEndY);
 //draw_sprite(sprCharacter1, 0, paddleRightEndX, paddleRightEndY);
 //var paddleHalfLeftEndX = x - bodyVectorX/4;
 //var paddleHalfLeftEndY = y - bodyVectorY/4;
-draw_sprite(characters[0], 0, x - charVectorX*3, y - charVectorY*3);
-draw_sprite(characters[1], 0, x - charVectorX*1, y - charVectorY*1);
-draw_sprite(characters[2], 0, x + charVectorX*1, y + charVectorY*1);
-draw_sprite(characters[3], 0, x + charVectorX*3, y + charVectorY*3);
+//draw_sprite(characters[0], 0, x - charVectorX*3, y - charVectorY*3);
+//draw_sprite(characters[1], 0, x - charVectorX*1, y - charVectorY*1);
+//draw_sprite(characters[2], 0, x + charVectorX*1, y + charVectorY*1);
+//draw_sprite(characters[3], 0, x + charVectorX*3, y + charVectorY*3);
+draw_sprite_ext(characters[0], 0, x - charVectorX*3, y - charVectorY*3, facing, 1, 0, c_white, 1.0);
+draw_sprite_ext(characters[1], 0, x - charVectorX*1, y -charVectorY*1, facing, 1, 0, c_white, 1.0);
+draw_sprite_ext(characters[2], 0, x + charVectorX*1, y + charVectorY*1, facing, 1, 0, c_white, 1.0);
+draw_sprite_ext(characters[3], 0, x + charVectorX*3, y + charVectorY*3, facing, 1, 0, c_white, 1.0);

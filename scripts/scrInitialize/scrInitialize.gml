@@ -16,4 +16,6 @@ function scrInitialize() {
 	scribble_font_add_all();
 	scribble_font_set_default("fntAvenirBlack30");
 	
+	// Initialize the player config so it can be used by objects later on
+	scrSetPlayerGlobals();
 }

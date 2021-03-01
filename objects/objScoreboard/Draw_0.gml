@@ -16,9 +16,6 @@ var scorecardWidth = 144;
 var scorecardHeight = 58;
 
 
-var shouldSortByScore = false;
-
-
 var sortedPlayerScores;
 var sortedPlayerCharacters;
 var sortedPlayerNumbers;
@@ -31,12 +28,15 @@ if(shouldSortByScore) {
 	var allPlayerCharacters = array_create(numPlayers, sprCharacter1);
 	array_copy(allPlayerCharacters, 0, global.playerCharacters, 0, numPlayers);
 	var allPlayerNumbers = array_create(numPlayers, 0);
-	array_copy(allPlayerNumbers, 0, global.allPlayerNumbers, 0, numPlayers);
+	array_copy(allPlayerNumbers, 0, global.playerNumbers, 0, numPlayers);
+	var allPlayerColors = array_create(numPlayers, 0);
+	array_copy(allPlayerColors, 0, global.playerColors, 0, numPlayers);
 
 	// Sort the players by score
 	var sortedPlayerScores = array_create(0, 0);
 	var sortedPlayerCharacters = array_create(0, 0);
 	var sortedPlayerNumbers = array_create(0, 0);
+	var sortedPlayerColors = array_create(0, 0);
 
 
 	repeat (numPlayers) {
@@ -53,24 +53,33 @@ if(shouldSortByScore) {
 		array_push(sortedPlayerScores, allPlayerScores[highIndex]);
 		array_push(sortedPlayerCharacters, allPlayerCharacters[highIndex]);
 		array_push(sortedPlayerNumbers, allPlayerNumbers[highIndex]);
+		array_push(sortedPlayerColors, allPlayerColors[highIndex]);
 	
 		// Remove from the unsorted array
 		array_delete(allPlayerScores, highIndex, 1);
 		array_delete(allPlayerCharacters, highIndex, 1);
 		array_delete(allPlayerNumbers, highIndex, 1);
+		array_delete(allPlayerColors, highIndex, 1);
 	}
 } else {
 	// Do not sort
 	sortedPlayerScores = global.playerScores;
-	sortedPlayerCharacters = global.playerCharacters
-	sortedPlayerNumbers = global.allPlayerNumbers
+	sortedPlayerCharacters = global.playerCharacters;
+	sortedPlayerNumbers = global.playerNumbers;
 }
 
 for(var i = 0; i < numPlayers; i++) {
-	var playerColor = global.playerColors[i];
+	
 	var cardOriginY = anchorY + i*scorecardHeight;
-	draw_sprite(sprScorecard, 0, anchorX, cardOriginY);
-	draw_sprite_ext(sortedPlayerCharacters[i], 0, anchorX + 68, cardOriginY+ 56, 2, 2, 0, c_white, 1.0);
-	scribble("[fa_left][fa_top][c_white]P" + string(sortedPlayerNumbers[i])).draw(anchorX, cardOriginY);
-	scribble("[fa_right][fa_top][c_white]" + string(sortedPlayerScores[i])).draw(anchorX+scorecardWidth - 6, cardOriginY);
+	var playerColor = sortedPlayerColors[i];
+	var playerColorInline = "[d#" + string(playerColor) +  "]";
+	
+	// Scorecard background
+	//draw_sprite(sprScorecard, 0, anchorX, cardOriginY);
+	// Player sprite (non-animated)
+	draw_sprite_ext(sortedPlayerCharacters[i], 0, anchorX + 74, cardOriginY+ 56, 2, 2, 0, c_white, 1.0);
+	// Player name
+	scribble("[fa_left][fa_top]" + playerColorInline + sortedPlayerNumbers[i]).draw(anchorX, cardOriginY);
+	// Player score
+	scribble("[fa_right][fa_top]" + playerColorInline + string(sortedPlayerScores[i])).draw(anchorX+scorecardWidth - 6, cardOriginY);
 }
