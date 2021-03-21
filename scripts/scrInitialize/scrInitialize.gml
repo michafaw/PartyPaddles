@@ -10,7 +10,7 @@ function scrInitialize() {
 	/////////////////
 	//
 	//  To disable GMLive, uncomment the next line before building
-	#macro live_enabled 0
+	//#macro live_enabled 0
 	//
 	/////////////////
 	
