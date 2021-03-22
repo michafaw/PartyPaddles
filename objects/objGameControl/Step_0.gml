@@ -16,7 +16,7 @@ if(keyboard_check_pressed(vk_escape)) {
 
 // If the game is over and we're done showing the winner banner, go to the title screen
 if(canExitGameOver) {
-	if(keyboard_check_pressed(vk_anykey)) {
+	if(keyboard_check_pressed(vk_anykey) && !keyboard_check_pressed(vk_alt) && !keyboard_check_pressed(vk_printscreen)) {
 		room_goto(roomTitle);
 	}
 }
