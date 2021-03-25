@@ -127,8 +127,8 @@
   "canGenerateBitmap": true,
   "maintainGms1Font": false,
   "parent": {
-    "name": "Scott Working",
-    "path": "folders/Scott Working.yy",
+    "name": "Fonts",
+    "path": "folders/Fonts.yy",
   },
   "resourceVersion": "1.0",
   "name": "fntMatchupPro48",

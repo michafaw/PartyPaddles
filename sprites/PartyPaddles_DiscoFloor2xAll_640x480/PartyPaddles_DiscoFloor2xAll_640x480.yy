@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"4d3bb907-6e2a-4e96-9d73-4e2088632a16","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Scott Working",
-    "path": "folders/Scott Working.yy",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "PartyPaddles_DiscoFloor2xAll_640x480",

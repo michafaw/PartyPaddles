@@ -13,8 +13,8 @@
   "soundFile": "Retro_Success_Melody_02___choir_soprano.wav",
   "duration": 1.850986,
   "parent": {
-    "name": "Scott Working",
-    "path": "folders/Scott Working.yy",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "Retro_Success_Melody_02___choir_soprano",

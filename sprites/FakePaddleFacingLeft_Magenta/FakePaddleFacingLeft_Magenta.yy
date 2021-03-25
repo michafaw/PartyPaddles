@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"8aa4c888-c1b2-433c-8b0e-fa1d76b81497","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Scott Working",
-    "path": "folders/Scott Working.yy",
+    "name": "TitleScreen",
+    "path": "folders/Sprites/TitleScreen.yy",
   },
   "resourceVersion": "1.0",
   "name": "FakePaddleFacingLeft_Magenta",

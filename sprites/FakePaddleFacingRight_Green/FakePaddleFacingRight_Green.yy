@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"ac3cf360-d5ef-4d22-bef9-12eef7b6e3a7","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Scott Working",
-    "path": "folders/Scott Working.yy",
+    "name": "TitleScreen",
+    "path": "folders/Sprites/TitleScreen.yy",
   },
   "resourceVersion": "1.0",
   "name": "FakePaddleFacingRight_Green",

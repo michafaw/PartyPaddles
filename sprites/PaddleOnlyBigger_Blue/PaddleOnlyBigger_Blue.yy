@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"c18f1f74-e495-4120-b21f-faeb25ab7a29","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Scott Working",
-    "path": "folders/Scott Working.yy",
+    "name": "TitleScreen",
+    "path": "folders/Sprites/TitleScreen.yy",
   },
   "resourceVersion": "1.0",
   "name": "PaddleOnlyBigger_Blue",

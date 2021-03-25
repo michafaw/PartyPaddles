@@ -13,8 +13,8 @@
   "soundFile": "game_over.ogg",
   "duration": 1.282143,
   "parent": {
-    "name": "Scott Working",
-    "path": "folders/Scott Working.yy",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "game_over",

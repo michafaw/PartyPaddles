@@ -13,8 +13,8 @@
   "soundFile": "Retro_PickUp_18.wav",
   "duration": 0.407925,
   "parent": {
-    "name": "Scott Working",
-    "path": "folders/Scott Working.yy",
+    "name": "Sounds",
+    "path": "folders/Sounds.yy",
   },
   "resourceVersion": "1.0",
   "name": "Retro_PickUp_18",

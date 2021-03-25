@@ -26,7 +26,7 @@
   "overriddenProperties": [],
   "parent": {
     "name": "Instructions Screen",
-    "path": "folders/Scott Working/Instructions Screen.yy",
+    "path": "folders/Objects/Instructions Screen.yy",
   },
   "resourceVersion": "1.0",
   "name": "objInstructionsControl",
