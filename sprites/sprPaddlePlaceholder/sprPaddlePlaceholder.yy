@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"a9c6c474-460c-4c02-a6cc-fab0ac0494c9","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Micha Working",
-    "path": "folders/Micha Working.yy",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprPaddlePlaceholder",

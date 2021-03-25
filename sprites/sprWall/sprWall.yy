@@ -68,8 +68,8 @@
     {"visible":true,"isLocked":false,"blendMode":0,"opacity":100.0,"displayName":"default","resourceVersion":"1.0","name":"70119567-81e0-4d12-9f9e-5edc64f525d0","tags":[],"resourceType":"GMImageLayer",},
   ],
   "parent": {
-    "name": "Micha Working",
-    "path": "folders/Micha Working.yy",
+    "name": "Sprites",
+    "path": "folders/Sprites.yy",
   },
   "resourceVersion": "1.0",
   "name": "sprWall",
