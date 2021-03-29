@@ -5,7 +5,7 @@
 function scrSetGameplayGlobals(){
 	if (live_call()) return live_result;
 	
-	global.scoreToWin = 11;
+	global.scoreToWin = 50;
 	
 	global.gameStartDelay = 1*room_speed;
 	global.maxBalls = 10;
