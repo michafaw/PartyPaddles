@@ -27,16 +27,21 @@ bodyVectorY = lengthdir_y(bodyWidth, bodyAngle)
 movementVectorX = lengthdir_x(movementSpeed, movementAngle)
 movementVectorY = lengthdir_y(movementSpeed, movementAngle)
 
+pushVectorX = lengthdir_x(pushDistance, pushAngle)
+pushVectorY = lengthdir_y(pushDistance, pushAngle)
+
 /// End of "internal math" block
 /////////////////////////////////////////////
 }
 
 // Movement
-var xx = x;
-var yy = y;
+var xx = baseX;
+var yy = baseY;
 
 var pressRight = false;
 var pressLeft = false;
+var pressPushForward = false;
+var pressPushBackward = false;
 
 var isAIPlayer = controllerNumber == 0;
 
@@ -44,6 +49,8 @@ if(!isAIPlayer) {
 	// Keyboard player
 	pressRight = keyboard_check(rightKey);
 	pressLeft = keyboard_check(leftKey);
+	pressPushForward = keyboard_check(pushForwardKey);
+	pressPushBackward = keyboard_check(pushBackwardKey);
 } else {
 	// AI player	
 	var ball = instance_nearest(x,y, objBallParent);
@@ -100,6 +107,15 @@ if(point_distance(homeX, homeY, xx, yy) > movementRange)
 
 //if(canMove && !global.isGameOver) { // Version to disable the paddles on game over
 if(canMove) {
+	baseX = xx;
+	baseY = yy;
+	
+	if(pressPushForward || pressPushBackward) { 
+		xx += pushVectorX;
+		yy += pushVectorY;
+	}
+		
+	
 	phy_position_x = xx;
 	phy_position_y = yy;
 	//x = xx;

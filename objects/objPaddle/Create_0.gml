@@ -40,6 +40,12 @@ pathColor = scribble_rgb_to_bgr(0x222222);
 //bodyAngleMatchesMovement = false;
 //movementAngle = 30;
 
+pushAngle = -90; // Make this a Variable Definition (and/or auto from bodyAngle +/- 90)
+pushDistance = 12;
+
+baseX = x; // Represents the paddle's position without pushing/flipping // Internal
+baseY = y; // Represents the paddle's position without pushing/flipping // Internal
+
 var availableCharacters = [sprCharacter1, sprCharacter2, sprCharacter3, sprCharacter4, sprCharacter5, sprCharacter6, sprCharacter7, sprCharacter8];
 for(var i = 0; i < 4; i++) {
 	// With a little bit of "where is this in the array" we could make the 
@@ -77,17 +83,27 @@ lastAIMove = array_create(numSkidFrames, 0);
 if(controllerNumber == 1) {
 	rightKey = vk_right;
 	leftKey = vk_left;
+	pushForwardKey = vk_down;
+	pushBackwardKey = vk_up;
 } else if(controllerNumber == 2) {
 	rightKey = ord("D");
 	leftKey = ord("A");
+	pushForwardKey = ord("W");;
+	pushBackwardKey = ord("S");;
 } else if(controllerNumber == 3) {
 	rightKey = ord("O");
 	leftKey = ord("P");
+	pushForwardKey = vk_up;
+	pushBackwardKey = vk_down;
 } else if(controllerNumber == 4) {
 	rightKey = ord("H");
 	leftKey = ord("K");
+	pushForwardKey = vk_up;
+	pushBackwardKey = vk_down;
 } else {
 	// AI player, but give it a key anyway for now
 	rightKey = vk_control;
 	leftKey = vk_control;
+	pushForwardKey = vk_control;
+	pushBackwardKey = vk_control;
 }
