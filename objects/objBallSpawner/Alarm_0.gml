@@ -7,7 +7,11 @@ if (live_call()) return live_result;
 // Check if we need more Balls on the board
 if(instance_number(objBallParent) < global.maxBalls) {
 	//show_debug_message("Creating new ball!"); // DEBUG MICHA TODO
-	var ballTypeToSpawn = choose(objDiscoBall, objDiscoBall, objDiscoBall); // Randomly picked from comma-separated list of ball types
+	if (room == roomArenaPhysics) {
+		var ballTypeToSpawn = choose(objDiscoBall, objDiscoBall, objDiscoBall); // Randomly picked from comma-separated list of ball types
+	} else if (room == roomArenaTeams) {
+		var ballTypeToSpawn = choose(objPlaygroundBall, objPlaygroundBall, objPlaygroundBall);
+	}
 	var newBall = instance_create_layer(x, y, "Instances", ballTypeToSpawn);
 	// Nice addition to add to the line above - Move the ball backwards along its path so the player has more time to react to a new ball -- FUTURE TODO
 	with(newBall.id) {
