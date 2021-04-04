@@ -29,7 +29,6 @@
     {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objBallParent","path":"objects/objBallParent/objBallParent.yy",},"parent":{"name":"objGoal","path":"objects/objGoal/objGoal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"parent":{"name":"objGoal","path":"objects/objGoal/objGoal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":8,"collisionObjectId":null,"parent":{"name":"objGoal","path":"objects/objGoal/objGoal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"objDiscoBall","path":"objects/objDiscoBall/objDiscoBall.yy",},"parent":{"name":"objGoal","path":"objects/objGoal/objGoal.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [
     {"varType":1,"value":"1","rangeEnabled":true,"rangeMin":1.0,"rangeMax":8.0,"listItems":[],"multiselect":false,"filters":[],"resourceVersion":"1.0","name":"playerNumber","tags":[],"resourceType":"GMObjectProperty",},
