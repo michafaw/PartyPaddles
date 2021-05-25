@@ -88,6 +88,7 @@
     {"id":{"name":"scribble_glyph_set","path":"scripts/scribble_glyph_set/scribble_glyph_set.yy",},"order":6,},
     {"id":{"name":"Text_Formatting","path":"notes/Text_Formatting/Text_Formatting.yy",},"order":10,},
     {"id":{"name":"objBallParent","path":"objects/objBallParent/objBallParent.yy",},"order":3,},
+    {"id":{"name":"scrUtils","path":"scripts/scrUtils/scrUtils.yy",},"order":3,},
     {"id":{"name":"DiscoLightMoving","path":"objects/DiscoLightMoving/DiscoLightMoving.yy",},"order":14,},
     {"id":{"name":"Sparkle_Anim_5x5","path":"sprites/Sparkle_Anim_5x5/Sparkle_Anim_5x5.yy",},"order":1,},
     {"id":{"name":"PartyPaddles_DiscoFloor2xAll_640x480","path":"sprites/PartyPaddles_DiscoFloor2xAll_640x480/PartyPaddles_DiscoFloor2xAll_640x480.yy",},"order":16,},
