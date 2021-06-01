@@ -7,15 +7,25 @@ if (live_call()) return live_result;
 
 var arenaCenterX = 232+8;
 
-if(shouldShowStartPhrase)
-	scribble("[fa_center][fa_middle][c_white][wave]Ready?[/wave]").draw(arenaCenterX, room_height/2);
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);
 
-if(shouldShowWinnerBanner) {	
-	scribble("[fa_center][fa_middle][c_white][wave][rainbow]" + winnerName + " Wins![/rainbow][wave]").draw(arenaCenterX, room_height/2);
+if(shouldShowStartPhrase) {
+	draw_set_font(global.font_title_text);
+	draw_set_color(c_white);
+	draw_text_blinking(arenaCenterX, room_height/2, "Ready?", 500000);	
 }
 
-if(canExitGameOver)
-	scribble("[fa_center][fa_center][#ffffcc][scale,.75][wave]Press any key[/wave]").draw(arenaCenterX, room_height/2 + 40);
+if(shouldShowWinnerBanner) {	
+	draw_set_font(global.font_title_text);
+	draw_text_rainbow(arenaCenterX, room_height/2, winnerName + " Wins!", 1000000, 255, 255);
+}
+
+if(canExitGameOver) {
+	draw_set_font(global.font_normal_text);
+	draw_set_color(global.main_text_color);
+	draw_text_blinking(arenaCenterX, room_height/2 + 40, "Press any key", 1000000);
+}
 
 /*
 var wallThickness = 8
