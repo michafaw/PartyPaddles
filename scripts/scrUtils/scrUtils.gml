@@ -32,7 +32,7 @@ function draw_text_blinking(_x, _y, _string, _repeatPeriod){
 	draw_set_alpha(origAlpha);
 }
 
-/// @function draw_text_blinking(x, y, text, period)
+/// @function draw_text_rainbow(x, y, text, period)
 /// @description Draws blinking text at coordinates. halign, valign, and text color should be set by the caller first.
 /// @param x The x coordinate to write at
 /// @param y The y coordinate to write at
