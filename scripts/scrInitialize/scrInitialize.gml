@@ -31,5 +31,7 @@ function scrInitialize() {
 	// Initialize gameplay config
 	scrSetGameplayGlobals();
 	
+	// Initialize text config
+	scrSetTextGlobals();
 	
 }

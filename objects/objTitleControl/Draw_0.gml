@@ -9,7 +9,7 @@ audio_stop_sound(Short_Dramatic_Pulsing_Loop__1);
 
 
 ///// Print title text in center paddle graphic /////
-draw_set_font(fntMatchupPro40);
+draw_set_font(global.font_title_text);
 draw_set_halign(fa_center);
 draw_set_valign(fa_middle);
 // I'll leave two options here--comment in the one you want.
@@ -22,8 +22,8 @@ draw_text_rainbow(room_width/2, room_height/2-2, "Party Paddles", 1000000, 255, 
 
 
 ///// Print blinking text in lower-right corner /////
-draw_set_font(fntMatchupPro30);
-text_color = make_colour_rgb(255, 255, 204);
+draw_set_font(global.font_normal_text);
+text_color = global.main_text_color;
 draw_set_color(text_color);
 draw_set_halign(fa_right);
 draw_set_valign(fa_bottom);
