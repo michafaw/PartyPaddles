@@ -68,25 +68,29 @@ if(shouldSortByScore) {
 	sortedPlayerNumbers = global.playerNumbers;
 }
 
+draw_set_valign(fa_top);
+draw_set_font(global.font_title_text);
+
 for(var i = 0; i < numPlayers; i++) {
 	
 	var cardOriginY = anchorY + i*scorecardHeight;
-	var playerColor = sortedPlayerColors[i];
-	var playerColorInline = "[d#" + string(playerColor) +  "]";
-	var playerColorInlineEnd = "";
 	
 	// Scorecard background
 	//draw_sprite(sprScorecard, 0, anchorX, cardOriginY);
 	// Player sprite (non-animated)
 	draw_sprite_ext(sortedPlayerCharacters[i], 0, anchorX + 74, cardOriginY+ 56, 2, 2, 0, c_white, 1.0);
 	// Player name
-	scribble("[fa_left][fa_top]" + playerColorInline + sortedPlayerNumbers[i] + playerColorInlineEnd).draw(anchorX+8, cardOriginY + 8);
+	draw_set_color(sortedPlayerColors[i]);
+	draw_set_halign(fa_left);
+	draw_text(anchorX+8, cardOriginY + 8, sortedPlayerNumbers[i]);
 	
-	if(sortedPlayerScores[i] >= global.scoreToWin) {
-		playerColorInline = playerColorInline + "[wave][rainbow]"
-		playerColorInlineEnd = "[/rainbow][/wave]" + playerColorInlineEnd;
-	}
 	// Player score
-	scribble("[fa_right][fa_top]" + playerColorInline + string(sortedPlayerScores[i]) + playerColorInlineEnd).draw(anchorX+scorecardWidth - 8, cardOriginY + 8);
-
+	draw_set_halign(fa_right);
+	var xPos = anchorX+scorecardWidth - 5;
+	var yPos = cardOriginY + 8;
+	if(sortedPlayerScores[i] >= global.scoreToWin) {
+		draw_text_rainbow(xPos, yPos, string(sortedPlayerScores[i]), 1000000, 255, 255);
+	} else {
+		draw_text(xPos, yPos, string(sortedPlayerScores[i]) );
+	}
 }
