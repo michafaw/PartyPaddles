@@ -19,12 +19,6 @@ function scrInitialize() {
 	if(global.reduceGraphics)
 		show_debug_overlay(true);
 		
-	
-	// Scribble set up
-	// https://github.com/JujuAdams/scribble/wiki/Text-Formatting
-	scribble_font_add_all();
-	scribble_font_set_default("fntMatchupPro40");
-	
 	// Initialize the player config so it can be used by objects later on
 	scrSetPlayerGlobals();
 	
