@@ -3,7 +3,7 @@
 
 if (live_call()) return live_result;
 
-if(keyboard_check_pressed(vk_anykey) && !keyboard_check_pressed(vk_alt) && !keyboard_check_pressed(vk_printscreen)) {
+if(on_most_keys()) {
 	audio_play_sound(Retro_Success_Melody_02___choir_soprano, 10, false);
 	room_goto(roomInstructions);
 }
