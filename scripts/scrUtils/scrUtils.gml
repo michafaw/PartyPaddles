@@ -1,6 +1,15 @@
 // Script assets have changed for v2.3.0 see
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 
+/// @function on_most_keys();
+/// @description Returns true if you pressed a key other than Ctrl, Alt, Shift, or PrtScr
+function on_most_keys() {
+	return keyboard_check_pressed(vk_anykey)
+		&& !keyboard_check_pressed(vk_control)
+		&& !keyboard_check_pressed(vk_alt)
+		&& !keyboard_check_pressed(vk_shift)
+		&& !keyboard_check_pressed(vk_printscreen);
+};
 
 /// @function draw_text_blinking(x, y, text, period)
 /// @description Draws blinking text at coordinates. halign, valign, and text color should be set by the caller first.
